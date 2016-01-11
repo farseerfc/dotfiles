@@ -1,0 +1,6 @@
+set fileencodings=utf-8,gb18030,utf-16
+let g:spf13_use_powerline = 0
+let g:airline_powerline_fonts = 1
+unlet g:airline_left_sep
+unlet g:airline_right_sep
+let g:pymode_rope = 0
