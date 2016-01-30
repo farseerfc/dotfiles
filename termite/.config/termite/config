@@ -129,7 +129,7 @@ foreground= #d0d0d0
 #foreground= #66ff66
 highlight = #505050
 cursor = #66ff66
-color0= #101010
+color0= #000000
 color1= #960050
 color2= #66aa11
 color3= #c47f2c
@@ -137,14 +137,14 @@ color4= #30309b
 color5= #7e40a5
 color6= #3579a8
 color7= #9999aa
-color8= #303030
+color8= #666666
 color9= #ff0090
 color10= #80ff00
 color11= #ffba68
 color12= #5f5fee
 color13= #bb88dd
 color14= #4eb4fa
-color15= #f0f0f0
+color15= #c0c0c0
 
 [hints]
 #font = Monospace 12
