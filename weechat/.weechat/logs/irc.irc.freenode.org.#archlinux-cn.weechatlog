@@ -1,0 +1,14 @@
+2013-05-28 22:32:50	-->	farseerfc (~farseerfc@fenrir.ics.es.osaka-u.ac.jp) has joined #archlinux-cn
+2013-05-28 22:32:50	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/ | 捐献服务器的贵人请与 phoenixlzx@archlinuxcn.org 联系"
+2013-05-28 22:32:50	--	Topic set by mugebjgd (~gebjgd@mnsr-4db1d457.pool.mediaWays.net) on Tue, 26 Mar 2013 17:23:19
+2013-05-28 22:32:50	--	Nicks #archlinux-cn: [@ChanServ @Pip amesists bnw ChaoFeng csslayer CyrusYzGTt DY farseerfc fracting hagabaka haroldwu if_else imles itswindtw jimmyxu laper majia321 panda-z peterhan piggybox sou_ stardiviner_ xmppbot zbinlin1]
+2013-05-28 22:32:50	--	Channel #archlinux-cn: 25 nicks (2 ops, 0 halfops, 0 voices, 23 normals)
+2013-05-28 22:32:52	--	Mode #archlinux-cn [+cnt]
+2013-05-28 22:32:52	--	Channel created on Sat, 19 Dec 2009 23:15:09
+2013-05-28 22:33:13	farseerfc	00:16.0 Communication controller: Intel Corporation 7 Series/C210 Series Chipset Family MEI Controller #1 (rev 04)
+2013-05-28 22:33:22	farseerfc	這個是什麼設備？
+2013-05-28 22:33:38	xmppbot	[百合仙子] 哦哦，明白了
+2013-05-28 22:33:48	farseerfc	我關機的時候會顯示它stop然後就卡住了……
+2013-05-28 22:33:54	xmppbot	[百合仙子] 有个 suid 权限被你弄没了
+2013-05-28 22:38:44	<--	laper (~laper@58.19.126.111) has quit (Quit: leaving)
+2013-05-28 22:39:01	--	irc: disconnected from server

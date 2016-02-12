@@ -1,0 +1,247 @@
+2013-05-28 22:31:55		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-05-28 22:32:06	=!=	irc: command "join" must be executed on irc buffer (server or channel)
+2013-05-28 22:32:12	=!=	irc: command "join" must be executed on irc buffer (server or channel)
+2013-05-28 22:32:25		irc: server irc.freenode.org created (temporary server, NOT SAVED!)
+2013-06-03 18:27:22		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-06-03 22:01:32		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-06-04 22:48:57		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-06-06 00:47:56		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-06-24 23:54:20		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-07-16 23:14:03		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-12-01 22:15:15	=!=	Warning: /home/farseerfc/.weechat/aspell.conf, line 5: unknown section identifier ("look")
+2013-12-01 22:15:15	=!=	Warning: /home/farseerfc/.weechat/aspell.conf, line 6: option outside section: color = lightred
+2013-12-01 22:15:15		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-12-02 00:37:10		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2014-01-21 13:28:46		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2014-12-24 12:16:08		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2014-12-24 12:16:27	=!=	No help available, "xmpp" is not a command or an option
+2014-12-24 12:16:33		[core]
+2014-12-24 12:16:33		  away  bar  buffer  color  command  cursor  debug  eval  filter  help  history  input  key  layout  mouse  mute  plugin  print  proxy  quit  reload  repeat  save  secure  set  unset  upgrade  uptime  version  wait  window
+2014-12-24 12:16:33		[alias]
+2014-12-24 12:16:33		  AAWAY  alias  AME  AMSG  ANICK  BYE  C  CHAT  CL  CLOSE  EXIT  IG  J  K  KB  LEAVE  M  MUB  N  Q  REDRAW  SAY  SIGNOFF  T  UB  UMODE  unalias  V  W  WC  WI  WII  WW
+2014-12-24 12:16:33		[aspell]
+2014-12-24 12:16:33		  aspell
+2014-12-24 12:16:33		[charset]
+2014-12-24 12:16:33		  charset
+2014-12-24 12:16:33		[exec]
+2014-12-24 12:16:33		  exec
+2014-12-24 12:16:33		[irc]
+2014-12-24 12:16:33		  admin       allserv     ctcp        dehalfop    die         ignore      ison        kickban     list        me          msg         notice      oper        pong        quote       remove      samode      saquit      servlist    stats       topic       unquiet     version     wallops     whowas    
+2014-12-24 12:16:33		  allchan     ban         cycle       deop        disconnect  info        join        kill        lusers      mode        names       notify      part        query       reconnect   restart     sanick      server      squery      summon      trace       userhost    voice       who       
+2014-12-24 12:16:33		  allpv       connect     dcc         devoice     halfop      invite      kick        links       map         motd        nick        op          ping        quiet       rehash      sajoin      sapart      service     squit       time        unban       users       wallchops   whois     
+2014-12-24 12:16:33		[logger]
+2014-12-24 12:16:33		  logger
+2014-12-24 12:16:33		[relay]
+2014-12-24 12:16:33		  relay
+2014-12-24 12:16:33		[script]
+2014-12-24 12:16:33		  script
+2014-12-24 12:16:33		[perl]
+2014-12-24 12:16:33		  perl
+2014-12-24 12:16:33		[python]
+2014-12-24 12:16:33		  python
+2014-12-24 12:16:33		[ruby]
+2014-12-24 12:16:33		  ruby
+2014-12-24 12:16:33		[lua]
+2014-12-24 12:16:33		  lua
+2014-12-24 12:16:33		[tcl]
+2014-12-24 12:16:33		  tcl
+2014-12-24 12:16:33		[guile]
+2014-12-24 12:16:33		  guile
+2014-12-24 12:16:33		[trigger]
+2014-12-24 12:16:33		  trigger
+2014-12-24 12:16:33		[xfer]
+2014-12-24 12:16:33		  me  xfer
+2015-01-13 14:21:40		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-01-13 14:21:49	=!=	irc: unable to create temporary server "irc.freenode.net" because the creation of temporary servers with command /connect is currently disabled
+2015-01-13 14:21:49	=!=	irc: if you want to create a standard server, use the command "/server add" (see /help server); if you really want to create a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2015-01-16 17:41:24		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-09-10 00:59:19	=!=	Warning: /home/farseerfc/.weechat/script.conf, line 46: unknown option for section "scripts": dir = "%h/script"
+2015-09-10 00:59:19		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 00:59:31	=!=	tox: profile "farseerfc" does not exist.
+2015-09-10 01:02:55		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:03:03	=!=	tox: profile "farseerfc" does not exist.
+2015-09-10 01:03:43		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:03:51	=!=	tox: profile "farseerfc" does not exist.
+2015-09-10 01:03:56	=!=	tox: profile "farseerfc.tox" does not exist.
+2015-09-10 01:04:00	--	All Tox profiles:
+2015-09-10 01:06:28		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:06:35	--	tox: profile "farseerfc" created!
+2015-09-10 01:07:30		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:07:35	--	All Tox profiles:
+2015-09-10 01:07:35	--	farseerfc
+2015-09-10 01:08:11	=!=	No help available, "tpx" is not a command or an option
+2015-09-10 01:08:15		[tox]  /tox  list
+2015-09-10 01:08:15		             create <name>
+2015-09-10 01:08:15		             delete <name> -yes|-keepdata
+2015-09-10 01:08:15		             load [<name>...]
+2015-09-10 01:08:15		             unload [<name>...]
+2015-09-10 01:08:15		             reload [<name>...]
+2015-09-10 01:08:15		manage Tox profiles
+2015-09-10 01:08:15		  list: list all Tox profile
+2015-09-10 01:08:15		create: create a new Tox profile
+2015-09-10 01:08:15		delete: delete a Tox profile; requires either -yes to confirm deletion or -keepdata to delete the profile but keep the Tox data file
+2015-09-10 01:08:15		  load: load one or more Tox profiles and connect to the network
+2015-09-10 01:08:15		unload: unload one or more Tox profiles
+2015-09-10 01:08:15		reload: reload one or more Tox profiles
+2015-09-10 01:08:39	=!=	tox: command "/friend" must be executed on a Tox buffer
+2015-09-10 01:09:54		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:10:12		[core]
+2015-09-10 01:10:12		  away     buffer   command  debug    filter   history  key      mouse    plugin   proxy    reload   save     set      upgrade  version  window 
+2015-09-10 01:10:12		  bar      color    cursor   eval     help     input    layout   mute     print    quit     repeat   secure   unset    uptime   wait   
+2015-09-10 01:10:12		[alias]
+2015-09-10 01:10:12		  AAWAY    AME      ANICK    C        CL       EXIT     J        KB       M        N        REDRAW   SIGNOFF  UB       V        WC       WII    
+2015-09-10 01:10:12		  alias    AMSG     BYE      CHAT     CLOSE    IG       K        LEAVE    MUB      Q        SAY      T        UMODE    W        WI       WW     
+2015-09-10 01:10:12		[aspell]
+2015-09-10 01:10:12		  aspell
+2015-09-10 01:10:12		[charset]
+2015-09-10 01:10:12		  charset
+2015-09-10 01:10:12		[exec]
+2015-09-10 01:10:12		  exec
+2015-09-10 01:10:12		[irc]
+2015-09-10 01:10:12		  admin       connect     deop        ignore      kick        lusers      msg         op          query       remove      sapart      squery      topic       users       who       
+2015-09-10 01:10:12		  allchan     ctcp        devoice     info        kickban     map         names       oper        quiet       restart     saquit      squit       trace       version     whois     
+2015-09-10 01:10:12		  allpv       cycle       die         invite      kill        me          nick        part        quote       sajoin      server      stats       unban       voice       whowas    
+2015-09-10 01:10:12		  allserv     dcc         disconnect  ison        links       mode        notice      ping        reconnect   samode      service     summon      unquiet     wallchops 
+2015-09-10 01:10:12		  ban         dehalfop    halfop      join        list        motd        notify      pong        rehash      sanick      servlist    time        userhost    wallops   
+2015-09-10 01:10:12		[logger]
+2015-09-10 01:10:12		  logger
+2015-09-10 01:10:12		[relay]
+2015-09-10 01:10:12		  relay
+2015-09-10 01:10:12		[script]
+2015-09-10 01:10:12		  script
+2015-09-10 01:10:12		[perl]
+2015-09-10 01:10:12		  perl
+2015-09-10 01:10:12		[python]
+2015-09-10 01:10:12		  python
+2015-09-10 01:10:12		[ruby]
+2015-09-10 01:10:12		  ruby
+2015-09-10 01:10:12		[lua]
+2015-09-10 01:10:12		  lua
+2015-09-10 01:10:12		[tcl]
+2015-09-10 01:10:12		  tcl
+2015-09-10 01:10:12		[guile]
+2015-09-10 01:10:12		  guile
+2015-09-10 01:10:12		[trigger]
+2015-09-10 01:10:12		  trigger
+2015-09-10 01:10:12		[xfer]
+2015-09-10 01:10:12		  me  xfer
+2015-09-10 01:10:12		[tox]
+2015-09-10 01:10:12		  bootstrap  friend  group  invite  me  msg  myid  name  nospam  part  status  statusmsg  topic  tox
+2015-09-10 01:11:43		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:11:51	--	tox: profile "farseerfc" created!
+2015-09-10 01:12:29		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:12:35	--	All Tox profiles:
+2015-09-10 01:12:35	--	farseerfc
+2015-09-10 01:12:57	--	All Tox profiles:
+2015-09-10 01:12:57	--	farseerfc
+2015-09-10 01:13:05		[tox]  /tox  list
+2015-09-10 01:13:05		             create <name>
+2015-09-10 01:13:05		             delete <name> -yes|-keepdata
+2015-09-10 01:13:05		             load [<name>...]
+2015-09-10 01:13:05		             unload [<name>...]
+2015-09-10 01:13:05		             reload [<name>...]
+2015-09-10 01:13:05		manage Tox profiles
+2015-09-10 01:13:05		  list: list all Tox profile
+2015-09-10 01:13:05		create: create a new Tox profile
+2015-09-10 01:13:05		delete: delete a Tox profile; requires either -yes to confirm deletion or -keepdata to delete the profile but keep the Tox data file
+2015-09-10 01:13:05		  load: load one or more Tox profiles and connect to the network
+2015-09-10 01:13:05		unload: unload one or more Tox profiles
+2015-09-10 01:13:05		reload: reload one or more Tox profiles
+2015-09-10 01:16:53		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:18:50		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:18:55	--	All Tox profiles:
+2015-09-10 01:18:55	--	farseerfc
+2015-09-10 01:24:07		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:24:16	--	All Tox profiles:
+2015-09-10 01:24:16	--	farseerfc
+2015-09-10 01:26:31	=!=	tox: error creating profile option "farseerfc.passphrase="mcpcpddxa""
+2015-09-10 01:26:31	=!=	Warning: /home/farseerfc/.weechat/tox.conf, line 9: invalid value for option: farseerfc.passphrase="mcpcpddxa"
+2015-09-10 01:26:31		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:26:47	=!=	You can not write text in this buffer
+2015-09-10 01:26:50	=!=	You can not write text in this buffer
+2015-09-10 01:30:47		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, tox, trigger, xfer
+2015-09-10 01:31:29		[core]
+2015-09-10 01:31:29		  away     buffer   command  debug    filter   history  key      mouse    plugin   proxy    reload   save     set      upgrade  version  window 
+2015-09-10 01:31:29		  bar      color    cursor   eval     help     input    layout   mute     print    quit     repeat   secure   unset    uptime   wait   
+2015-09-10 01:31:29		[alias]
+2015-09-10 01:31:29		  AAWAY    AME      ANICK    C        CL       EXIT     J        KB       M        N        REDRAW   SIGNOFF  UB       V        WC       WII    
+2015-09-10 01:31:29		  alias    AMSG     BYE      CHAT     CLOSE    IG       K        LEAVE    MUB      Q        SAY      T        UMODE    W        WI       WW     
+2015-09-10 01:31:29		[aspell]
+2015-09-10 01:31:29		  aspell
+2015-09-10 01:31:29		[charset]
+2015-09-10 01:31:29		  charset
+2015-09-10 01:31:29		[exec]
+2015-09-10 01:31:29		  exec
+2015-09-10 01:31:29		[irc]
+2015-09-10 01:31:29		  admin       connect     deop        ignore      kick        lusers      msg         op          query       remove      sapart      squery      topic       users       who       
+2015-09-10 01:31:29		  allchan     ctcp        devoice     info        kickban     map         names       oper        quiet       restart     saquit      squit       trace       version     whois     
+2015-09-10 01:31:29		  allpv       cycle       die         invite      kill        me          nick        part        quote       sajoin      server      stats       unban       voice       whowas    
+2015-09-10 01:31:29		  allserv     dcc         disconnect  ison        links       mode        notice      ping        reconnect   samode      service     summon      unquiet     wallchops 
+2015-09-10 01:31:29		  ban         dehalfop    halfop      join        list        motd        notify      pong        rehash      sanick      servlist    time        userhost    wallops   
+2015-09-10 01:31:29		[logger]
+2015-09-10 01:31:29		  logger
+2015-09-10 01:31:29		[relay]
+2015-09-10 01:31:29		  relay
+2015-09-10 01:31:29		[script]
+2015-09-10 01:31:29		  script
+2015-09-10 01:31:29		[perl]
+2015-09-10 01:31:29		  perl
+2015-09-10 01:31:29		[python]
+2015-09-10 01:31:29		  python
+2015-09-10 01:31:29		[ruby]
+2015-09-10 01:31:29		  ruby
+2015-09-10 01:31:29		[lua]
+2015-09-10 01:31:29		  lua
+2015-09-10 01:31:29		[tcl]
+2015-09-10 01:31:29		  tcl
+2015-09-10 01:31:29		[guile]
+2015-09-10 01:31:29		  guile
+2015-09-10 01:31:29		[trigger]
+2015-09-10 01:31:29		  trigger
+2015-09-10 01:31:29		[xfer]
+2015-09-10 01:31:29		  me  xfer
+2015-09-10 01:31:29		[tox]
+2015-09-10 01:31:29		  bootstrap  friend  group  invite  me  msg  myid  name  nospam  part  status  statusmsg  topic  tox
+2015-09-10 01:33:07		[core]
+2015-09-10 01:33:07		  away     buffer   command  debug    filter   history  key      mouse    plugin   proxy    reload   save     set      upgrade  version  window 
+2015-09-10 01:33:07		  bar      color    cursor   eval     help     input    layout   mute     print    quit     repeat   secure   unset    uptime   wait   
+2015-09-10 01:33:07		[alias]
+2015-09-10 01:33:07		  AAWAY    AME      ANICK    C        CL       EXIT     J        KB       M        N        REDRAW   SIGNOFF  UB       V        WC       WII    
+2015-09-10 01:33:07		  alias    AMSG     BYE      CHAT     CLOSE    IG       K        LEAVE    MUB      Q        SAY      T        UMODE    W        WI       WW     
+2015-09-10 01:33:07		[aspell]
+2015-09-10 01:33:07		  aspell
+2015-09-10 01:33:07		[charset]
+2015-09-10 01:33:07		  charset
+2015-09-10 01:33:07		[exec]
+2015-09-10 01:33:07		  exec
+2015-09-10 01:33:07		[irc]
+2015-09-10 01:33:07		  admin       connect     deop        ignore      kick        lusers      msg         op          query       remove      sapart      squery      topic       users       who       
+2015-09-10 01:33:07		  allchan     ctcp        devoice     info        kickban     map         names       oper        quiet       restart     saquit      squit       trace       version     whois     
+2015-09-10 01:33:07		  allpv       cycle       die         invite      kill        me          nick        part        quote       sajoin      server      stats       unban       voice       whowas    
+2015-09-10 01:33:07		  allserv     dcc         disconnect  ison        links       mode        notice      ping        reconnect   samode      service     summon      unquiet     wallchops 
+2015-09-10 01:33:07		  ban         dehalfop    halfop      join        list        motd        notify      pong        rehash      sanick      servlist    time        userhost    wallops   
+2015-09-10 01:33:07		[logger]
+2015-09-10 01:33:07		  logger
+2015-09-10 01:33:07		[relay]
+2015-09-10 01:33:07		  relay
+2015-09-10 01:33:07		[script]
+2015-09-10 01:33:07		  script
+2015-09-10 01:33:07		[perl]
+2015-09-10 01:33:07		  perl
+2015-09-10 01:33:07		[python]
+2015-09-10 01:33:07		  python
+2015-09-10 01:33:07		[ruby]
+2015-09-10 01:33:07		  ruby
+2015-09-10 01:33:07		[lua]
+2015-09-10 01:33:07		  lua
+2015-09-10 01:33:07		[tcl]
+2015-09-10 01:33:07		  tcl
+2015-09-10 01:33:07		[guile]
+2015-09-10 01:33:07		  guile
+2015-09-10 01:33:07		[trigger]
+2015-09-10 01:33:07		  trigger
+2015-09-10 01:33:07		[xfer]
+2015-09-10 01:33:07		  me  xfer
+2015-09-10 01:33:07		[tox]
+2015-09-10 01:33:07		  bootstrap  friend  group  invite  me  msg  myid  name  nospam  part  status  statusmsg  topic  tox
+2015-09-10 01:33:38	=!=	tox: command "/friend" must be executed on a Tox buffer

@@ -1,0 +1,114 @@
+2013-07-17 00:25:48	-->	farseerfc (~farseerfc@p8226-ipbfp1604osakakita.osaka.ocn.ne.jp) has joined #archlinux-cn
+2013-07-17 00:25:49	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/ | 捐献服务器的贵人请与 phoenixlzx@archlinuxcn.org 联系"
+2013-07-17 00:25:49	--	Topic set by mugebjgd (~gebjgd@mnsr-4db1d457.pool.mediaWays.net) on Tue, 26 Mar 2013 17:23:19
+2013-07-17 00:25:49	--	Nicks #archlinux-cn: [@ChanServ amesists Azurewrath biergaizi bigeagle_xd chliny comilk csslayer CyrusYzGTt erhandsome farseerfc fdb713 hagabaka jamesfung14 jarod_ch_ kangkang lily1 phoenixlzx shawn-t sou_ sssslang StarBrilliant xmppbot yuyichao]
+2013-07-17 00:25:49	--	Channel #archlinux-cn: 24 nicks (1 op, 0 halfops, 0 voices, 23 normals)
+2013-07-17 00:25:51	--	Mode #archlinux-cn [+cnt]
+2013-07-17 00:25:51	--	Channel created on Sat, 19 Dec 2009 23:15:09
+2013-07-17 00:35:01	-->	itswindtw (~itswindtw@61-231-23-20.dynamic.hinet.net) has joined #archlinux-cn
+2013-07-17 00:35:47	<--	itswindtw (~itswindtw@61-231-23-20.dynamic.hinet.net) has quit (Remote host closed the connection)
+2013-07-17 00:36:04	-->	windtw (~windtw@61-231-23-20.dynamic.hinet.net) has joined #archlinux-cn
+2013-07-17 00:36:28	<--	windtw (~windtw@61-231-23-20.dynamic.hinet.net) has quit (Remote host closed the connection)
+2013-07-17 00:38:51	-->	Pip (~Pip__@unaffiliated/pip) has joined #archlinux-cn
+2013-07-17 00:38:52	--	Mode #archlinux-cn [+o Pip] by ChanServ
+2013-07-17 00:47:42	-->	mhtung (~mhtung@61-231-23-20.dynamic.hinet.net) has joined #archlinux-cn
+2013-07-17 00:53:03	-->	felixonmars (~felixonma@archlinux/trusteduser/felixonmars) has joined #archlinux-cn
+2013-07-17 01:01:33	<--	StarBrilliant (~proxy@unaffiliated/starbrilliant) has quit (Quit: Leaving.)
+2013-07-17 01:16:50	<--	comilk (~mark@183.221.13.80) has quit (Ping timeout: 240 seconds)
+2013-07-17 01:21:58	<--	chliny (~chliny@121.33.190.186) has quit (Quit: Leaving.)
+2013-07-17 01:49:11	-->	yue_ (~yue@c-71-199-115-64.hsd1.pa.comcast.net) has joined #archlinux-cn
+2013-07-17 01:49:42	<--	yue_ (~yue@c-71-199-115-64.hsd1.pa.comcast.net) has quit (Client Quit)
+2013-07-17 01:53:10	-->	Jack772 (~yaaic@unaffiliated/jack77213) has joined #archlinux-cn
+2013-07-17 01:53:44	<--	Jack772 (~yaaic@unaffiliated/jack77213) has quit (Client Quit)
+2013-07-17 02:06:38	<--	Azurewrath (~cangqiong@unaffiliated/necomancer) has quit (Quit: 离开)
+2013-07-17 02:07:32	<--	csslayer (~quassel@2607:f878:1:351:0:11:6111:1) has quit (*.net *.split)
+2013-07-17 02:07:32	<--	amesists (~quassel@2607:f878:1:351:0:11:6111:1) has quit (*.net *.split)
+2013-07-17 02:09:09	-->	Azurewrath (~cangqiong@li592-201.members.linode.com) has joined #archlinux-cn
+2013-07-17 02:09:09	<--	Azurewrath (~cangqiong@li592-201.members.linode.com) has quit (Changing host)
+2013-07-17 02:09:09	-->	Azurewrath (~cangqiong@unaffiliated/necomancer) has joined #archlinux-cn
+2013-07-17 02:10:04	-->	csslayer (~quassel@2607:f878:1:351:0:11:6111:1) has joined #archlinux-cn
+2013-07-17 02:10:04	-->	amesists (~quassel@2607:f878:1:351:0:11:6111:1) has joined #archlinux-cn
+2013-07-17 02:28:11	<--	Azurewrath (~cangqiong@unaffiliated/necomancer) has quit (Ping timeout: 276 seconds)
+2013-07-17 02:46:40	<--	Pip (~Pip__@unaffiliated/pip) has quit (Ping timeout: 260 seconds)
+2013-07-17 02:57:41	<--	jamesfung14 (~jamesfung@209.226.137.108) has left #archlinux-cn
+2013-07-17 04:50:42	--	irc: disconnected from server
+2013-07-17 04:50:59	-->	farseerfc (~farseerfc@p8226-ipbfp1604osakakita.osaka.ocn.ne.jp) has joined #archlinux-cn
+2013-07-17 04:50:59	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/ | 捐献服务器的贵人请与 phoenixlzx@archlinuxcn.org 联系"
+2013-07-17 04:50:59	--	Topic set by mugebjgd (~gebjgd@mnsr-4db1d457.pool.mediaWays.net) on Tue, 26 Mar 2013 17:23:19
+2013-07-17 04:51:00	--	Nicks #archlinux-cn: [@ChanServ @Pip amesists biergaizi bigeagle_xd csslayer CyrusYzGTt erhandsome farseerfc fdb713 felixonmars hagabaka jarod_ch_ kangkang lily1 mhtung phoenixlzx shawn-t sou_ sssslang xmppbot yuyichao]
+2013-07-17 04:51:00	--	Channel #archlinux-cn: 22 nicks (2 ops, 0 halfops, 0 voices, 20 normals)
+2013-07-17 04:51:01	--	Mode #archlinux-cn [+cnt]
+2013-07-17 04:51:01	--	Channel created on Sat, 19 Dec 2009 23:15:09
+2013-07-17 06:21:55	--	irc: disconnected from server
+2013-07-17 06:22:12	-->	farseerfc (~farseerfc@p8226-ipbfp1604osakakita.osaka.ocn.ne.jp) has joined #archlinux-cn
+2013-07-17 06:22:12	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/ | 捐献服务器的贵人请与 phoenixlzx@archlinuxcn.org 联系"
+2013-07-17 06:22:12	--	Topic set by mugebjgd (~gebjgd@mnsr-4db1d457.pool.mediaWays.net) on Tue, 26 Mar 2013 17:23:19
+2013-07-17 06:22:12	--	Nicks #archlinux-cn: [@ChanServ @Pip amesists biergaizi bigeagle_xd csslayer CyrusYzGTt erhandsome farseerfc fdb713 felixonmars hagabaka jarod_ch_ kangkang lily1 mhtung phoenixlzx shawn-t sssslang xmppbot yuyichao]
+2013-07-17 06:22:12	--	Channel #archlinux-cn: 21 nicks (2 ops, 0 halfops, 0 voices, 19 normals)
+2013-07-17 06:22:14	--	Mode #archlinux-cn [+cnt]
+2013-07-17 06:22:14	--	Channel created on Sat, 19 Dec 2009 23:15:09
+2013-07-17 06:24:47	<--	Pip (~Pip__@unaffiliated/pip) has quit (Quit: Leaving)
+2013-07-17 08:49:49	--	irc: disconnected from server
+2013-07-17 08:50:27	-->	farseerfc (~farseerfc@fenrir.ics.es.osaka-u.ac.jp) has joined #archlinux-cn
+2013-07-17 08:50:27	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/ | 捐献服务器的贵人请与 phoenixlzx@archlinuxcn.org 联系"
+2013-07-17 08:50:27	--	Topic set by mugebjgd (~gebjgd@mnsr-4db1d457.pool.mediaWays.net) on Tue, 26 Mar 2013 17:23:19
+2013-07-17 08:50:27	--	Nicks #archlinux-cn: [@ChanServ @Pip amesists biergaizi bigeagle_xd csslayer CyrusYzGTt erhandsome farseerfc fdb713 felixonmars hagabaka jack77213 jarod_ch_ kangkang lily1 mengfei mhtung phoenixlzx shawn-t sssslang xmppbot yuyichao]
+2013-07-17 08:50:27	--	Channel #archlinux-cn: 23 nicks (2 ops, 0 halfops, 0 voices, 21 normals)
+2013-07-17 08:50:29	--	Mode #archlinux-cn [+cnt]
+2013-07-17 08:50:30	--	Channel created on Sat, 19 Dec 2009 23:15:09
+2013-07-17 09:05:36	-->	sou_ (~oy@123.232.90.111) has joined #archlinux-cn
+2013-07-17 09:06:25	-->	StarBrilliant (~proxy@unaffiliated/starbrilliant) has joined #archlinux-cn
+2013-07-17 09:08:24	<--	sou_ (~oy@123.232.90.111) has quit (Remote host closed the connection)
+2013-07-17 09:09:14	<--	yuyichao (~yuyichao@compton-four-thirty-one.mit.edu) has quit (Ping timeout: 276 seconds)
+2013-07-17 09:09:57	-->	sou_ (~oy@123.232.90.111) has joined #archlinux-cn
+2013-07-17 09:12:46	-->	yuyichao (~yuyichao@2001:4830:2446:ee:224:7eff:fe11:9132) has joined #archlinux-cn
+2013-07-17 09:44:54	<--	felixonmars (~felixonma@archlinux/trusteduser/felixonmars) has quit (Quit: Leaving.)
+2013-07-17 09:46:08	-->	Jack772 (~yaaic@unaffiliated/jack77213) has joined #archlinux-cn
+2013-07-17 09:46:46	<--	Jack772 (~yaaic@unaffiliated/jack77213) has quit (Remote host closed the connection)
+2013-07-17 09:47:00	-->	jarod____ (~jarod_che@115.192.184.61) has joined #archlinux-cn
+2013-07-17 09:47:39	<--	jarod_ch_ (~jarod_che@115.192.184.61) has quit (Ping timeout: 264 seconds)
+2013-07-17 09:48:35	-->	Jack772 (~jack77213@unaffiliated/jack77213) has joined #archlinux-cn
+2013-07-17 09:48:55	<--	jack77213 (~jack77213@unaffiliated/jack77213) has left #archlinux-cn
+2013-07-17 09:54:49	<--	Pip (~Pip__@unaffiliated/pip) has quit (Remote host closed the connection)
+2013-07-17 10:06:37	-->	panda-z (~quassel@202.120.42.203) has joined #archlinux-cn
+2013-07-17 10:13:32	<--	panda-z (~quassel@202.120.42.203) has quit (Remote host closed the connection)
+2013-07-17 10:16:47	-->	panda-z (~quassel@202.120.42.203) has joined #archlinux-cn
+2013-07-17 10:26:23	<--	Jack772 (~jack77213@unaffiliated/jack77213) has quit (Quit: Bye)
+2013-07-17 10:26:44	-->	Jack772 (~jack77213@unaffiliated/jack77213) has joined #archlinux-cn
+2013-07-17 10:42:11	<--	mengfei (~Thunderbi@58.240.246.9) has quit (Read error: Connection reset by peer)
+2013-07-17 10:47:34	-->	if_else (~if_else@42.120.72.175) has joined #archlinux-cn
+2013-07-17 10:49:43	-->	Pip (~Pip__@unaffiliated/pip) has joined #archlinux-cn
+2013-07-17 10:49:43	--	Mode #archlinux-cn [+o Pip] by ChanServ
+2013-07-17 10:57:05	-->	felixonmars (~felixonma@archlinux/trusteduser/felixonmars) has joined #archlinux-cn
+2013-07-17 10:58:37	-->	huntxu (~hunt@199.180.254.36) has joined #archlinux-cn
+2013-07-17 11:08:05	<--	Jack772 (~jack77213@unaffiliated/jack77213) has quit (Ping timeout: 256 seconds)
+2013-07-17 11:14:57	<--	CyrusYzGTt (~CyrusYzGT@fedora/CyrusYzGTt) has quit (Read error: Connection reset by peer)
+2013-07-17 11:15:36	<--	phoenixlzx (~quassel@122.192.191.221) has quit (Quit: http://quassel-irc.org - ???????)
+2013-07-17 11:15:53	-->	phoenixlzx (~quassel@122.192.191.221) has joined #archlinux-cn
+2013-07-17 11:18:35	-->	mengfei (~Thunderbi@58.240.246.9) has joined #archlinux-cn
+2013-07-17 11:20:51	-->	jack77213 (~jack77213@unaffiliated/jack77213) has joined #archlinux-cn
+2013-07-17 11:30:51	<--	jack77213 (~jack77213@unaffiliated/jack77213) has quit (Remote host closed the connection)
+2013-07-17 11:35:06	<--	felixonmars (~felixonma@archlinux/trusteduser/felixonmars) has quit (Ping timeout: 240 seconds)
+2013-07-17 11:36:04	-->	CyrusYzGTt (~CyrusYzGT@fedora/CyrusYzGTt) has joined #archlinux-cn
+2013-07-17 11:36:21	-->	felixonmars (~felixonma@archlinux/trusteduser/felixonmars) has joined #archlinux-cn
+2013-07-17 11:47:29	-->	JokerYu (~JokerYu@112.65.211.117) has joined #archlinux-cn
+2013-07-17 12:11:10	<--	mengfei (~Thunderbi@58.240.246.9) has quit (Read error: Connection reset by peer)
+2013-07-17 12:11:26	-->	mengfei (~Thunderbi@58.240.246.9) has joined #archlinux-cn
+2013-07-17 12:39:42	-->	stardiviner (~quassel@122.236.241.193) has joined #archlinux-cn
+2013-07-17 12:40:19	-->	phoenixlzx_ (~quassel@112.84.20.141) has joined #archlinux-cn
+2013-07-17 12:41:01	<--	phoenixlzx (~quassel@122.192.191.221) has quit (Ping timeout: 256 seconds)
+2013-07-17 12:44:42	<--	phoenixlzx_ (~quassel@112.84.20.141) has quit (Read error: Connection reset by peer)
+2013-07-17 13:18:20	-->	kerrick (~kerrick@c-69-181-16-119.hsd1.ca.comcast.net) has joined #archlinux-cn
+2013-12-01 22:15:35	-->	farseerfc1 (~farseerfc@p2224-ipbfp4204osakakita.osaka.ocn.ne.jp) has joined #archlinux-cn
+2013-12-01 22:15:35	--	Topic for #archlinux-cn is "欢迎来到Archlinux中文社区|官网: http://www.archlinux.org |阅读和查询 Archwiki: https://wiki.archlinux.org/index.php/Main_Page | 中文bbs: http://bbs.archlinuxcn.org/ | 社区仓库/镜像加速源: https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/"
+2013-12-01 22:15:35	--	Topic set by Pip (~DaBian@unaffiliated/pip) on 三, 14 8月 2013 14:51:26
+2013-12-01 22:15:35	--	Nicks #archlinux-cn: [@ChanServ acgtyrant1 amesists Aoy_c ASenR_droid Cherng csslayer CyrusYzGTt erhandsome eternnoir farseerfc farseerfc1 fdb713 fracting gebjgd gzgebjgd hagabaka haroldwu hoxily if_else_ lilydjwg mahatr mengfei miku phoenixlzx QianChenglong sou_ stardiviner winter xmppbot Yangtse yuyichao zouyunce zweiy zzzzzzzz]
+2013-12-01 22:15:35	--	Channel #archlinux-cn: 35 nicks (1 op, 0 voices, 34 normals)
+2013-12-01 22:15:36	--	Mode #archlinux-cn [+cnt]
+2013-12-01 22:15:36	--	Channel created on 六, 19 12月 2009 23:15:09
+2013-12-01 22:15:36	csslayer	quassel
+2013-12-01 22:15:54	csslayer	还可以用 quasselcore在服务器挂机
+2013-12-01 22:16:08	farseerfc1	看來大家有各自的喜好呀
+2013-12-01 22:16:17	ASenR_droid	irssi也可以挂机哦
+2013-12-01 22:16:36	farseerfc1	掛機的意義是？收集聊天記錄？
+2013-12-01 22:16:42	--	irc: disconnected from server
