@@ -1,5 +1,6 @@
 #%PAM-1.0
 
+auth      sufficient      pam_yubico.so id=27238
 auth      required  pam_unix.so     try_first_pass nullok
 auth      optional  pam_permit.so
 auth      required  pam_env.so

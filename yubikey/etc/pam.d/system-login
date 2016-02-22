@@ -1,5 +1,5 @@
 #%PAM-1.0
-auth       sufficient pam_yubico.so         mode=challenge-response
+auth       sufficient pam_yubico.so id=27238
 auth       required   pam_tally.so         onerr=succeed file=/var/log/faillog
 auth       required   pam_shells.so
 auth       requisite  pam_nologin.so
