@@ -1,0 +1,3 @@
+#!/bin/sh
+ExecUpPost="cp /etc/pacman.d/mirrorlist{.$Profile,}"
+ExecDownPre="cp /etc/pacman.d/mirrorlist{,.$Profile}"
