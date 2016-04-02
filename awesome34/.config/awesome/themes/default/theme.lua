@@ -6,7 +6,7 @@ theme = {}
 
 theme.font          = "Source Han Sans 12"
 
-theme.bg_normal     = "#00000066"
+theme.bg_normal     = "#00000000"
 theme.bg_focus      = "#535d6ccc"
 theme.bg_urgent     = "#ff0000cc"
 theme.bg_minimize   = "#44444400"
@@ -17,9 +17,9 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "8"
-theme.border_normal = "#000000ff"
-theme.border_focus  = "#000000ff"
-theme.border_marked = "#000000ff"
+theme.border_normal = "#ffffffff"
+theme.border_focus  = "#00000000"
+theme.border_marked = "#00000000"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -74,10 +74,10 @@ theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/defau
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "feh -z --bg-fill /home/farseerfc/Dropbox/Photos/wallVert/",
-                        "feh -z --bg-fill /home/farseerfc/Dropbox/Photos/wallVert/",
-                        "feh -z --bg-fill /home/farseerfc/Dropbox/Photos/wallVert/",
-                        "feh -z --bg-fill /home/farseerfc/Dropbox/Photos/wallpaper/" }
+theme.wallpaper_cmd = { "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
+                        "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
+                        "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
+                        "feh -z --bg-fill /home/farseerfc/annex/photos/wallpaper/" }
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
