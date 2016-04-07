@@ -1,0 +1,66 @@
+.content {
+    height: 100%;
+    min-height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url("../assets/img/hakurei.jpg");
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#sidebar{
+  background: transparent;
+}
+
+tr.bufferline:hover, /*message line hover*/
+#nicklist a:hover, /*nick list hover*/
+.nav>li>a:hover, .nav>li>a:focus /*chat list hover*/
+{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-pills li:nth-child(2n) /* chat list odd item*/
+{
+    background-color: rgba(20, 20, 20, 0.2);
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li > a:active,
+.nav-pills > li > a:active span,
+.nav-pills > li.active > a:hover /* active chat */
+{
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+#bufferlines .btn /* button in mesages*/
+{
+  color: #eee;
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 0px rgba(255,255,255,0.3);
+}
+
+#bufferlines .btn:hover /* button in mesages hover*/
+{
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 2px 0px rgba(255,255,255,0.5);
+}
+
+/* scrollbar styling */
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner{
+   background: transparent;
+ }
+
+::-webkit-scrollbar-thumb{
+  border-radius: 0px;
+  background: rgba(0, 0, 0, 0.2);
+ }
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(178, 178, 255, 0.4);
+  }
