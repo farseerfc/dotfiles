@@ -5,7 +5,7 @@ pdfpc v4.0.2
 pelican 3.6.3
 powerline 2.3
 python2-smartypants 1.8.6
-python-feedgenerator 1.7
+python-feedgenerator 1.8
 python-ghp-import 0.4.2
 python-mdx-video 0.1.8
 python-pdfrw 0.2

@@ -8,5 +8,4 @@ jave 5.0
 jfbview 0.5.1
 libqtelegram-ae-git v6.1-stable
 libstdc++ 20140403
-powder-toy v91.1.325
 telegramqml-git v0.9.2
