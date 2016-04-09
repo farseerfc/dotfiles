@@ -1,5 +1,5 @@
 cutegram v2.7.1
-libqtelegram-ae v6.0
+libqtelegram-ae v6.1-stable
 lsw 0.3
 pdfpc v4.0.2
 pelican 3.6.3
@@ -13,7 +13,7 @@ python-rst2pdf 0.93
 python-smartypants 1.8.6
 python-typogrify 2.0.7
 qtox v1.3.0
-retext 5.3.0
+retext 5.3.1
 telegramqml v0.9.2
 toxic v0.7.0
 ttf-hanazono 20160201
