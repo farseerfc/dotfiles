@@ -1,11 +1,17 @@
+tr.bufferline {
+    line-height: 150%;
+    height: 2em;
+}
+#bufferlines table >  :nth-child(even) {
+background-color: rgba(255,255,255,0.1);
+}
 .content {
     height: 100%;
     min-height: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url("../assets/img/hakurei.jpg");
-    background-color: white;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../assets/img/hakurei.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center bottom;
 }
 
 #sidebar{
@@ -16,18 +22,22 @@ tr.bufferline:hover, /*message line hover*/
 #nicklist a:hover, /*nick list hover*/
 .nav>li>a:hover, .nav>li>a:focus /*chat list hover*/
 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+td.message, td.time, td.prefix {
+vertical-align: middle;
 }
 
 .nav-pills li:nth-child(2n) /* chat list odd item*/
 {
-    background-color: rgba(20, 20, 20, 0.2);
+      background-color: rgba(20, 20, 20, 0.2);
 }
 
 .nav-pills > li.active > a,
 .nav-pills > li > a:active,
 .nav-pills > li > a:active span,
-.nav-pills > li.active > a:hover /* active chat */
+.nav-pills > li.active > a:hover /* active chat */ 
 {
   background-color: rgba(200, 200, 200, 0.5);
 }
