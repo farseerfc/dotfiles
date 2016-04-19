@@ -1,9 +1,9 @@
 cutegram v2.7.1
-libqtelegram-ae v6.1-stable
+libqtelegram-ae v6.0
 lsw 0.3
 pdfpc v4.0.2
 pelican 3.6.3
-powerline 2.3
+powerline 2.4
 python2-smartypants 1.8.6
 python-feedgenerator 1.8
 python-ghp-import 0.4.2
