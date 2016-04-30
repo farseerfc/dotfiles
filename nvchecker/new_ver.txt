@@ -1,5 +1,5 @@
 cutegram v2.7.1
-libqtelegram-ae v6.0
+libqtelegram-ae v6.1-stable
 lsw 0.3
 pdfpc v4.0.2
 pelican 3.6.3
