@@ -5,7 +5,7 @@ glmark2 2014.03
 gochiusearch 1.1.5902.28922
 ipad_charge 1.1
 jave 5.0
-jfbview 0.5.1
+jfbview 0.5.2
 libqtelegram-ae-git v6.1-stable
 libstdc++ 20140403
 powder-toy v91.3.328
