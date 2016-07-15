@@ -33,6 +33,7 @@ alias gtar="tar -Ipigz czfv"
 alias btar="tar -Ilbzip2 cjfv"
 alias 7tar="7z a -mmt" 
 alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
+alias tmux="tmux -2"
 
 man() {
 	env \
