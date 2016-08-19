@@ -4,9 +4,11 @@
 
 # If not running interactively, don't do anything
 
-export PATH=$PATH:~/eclipse:/usr/local/texlive/2015/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:/home/farseerfc/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:/home/farseerfc/.local/bin
-export MANPATH=$MANPATH:/usr/local/texlive/2015/texmf/doc/ma
-export INFOPATH=$INFOPATH:/usr/local/texlive/2015/texmf/doc/info
+TEXLIVEPATH=/usr/local/texlive/2016
+
+export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:/home/farseerfc/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:/home/farseerfc/.local/bin
+export MANPATH=$MANPATH:$TEXLIVEPATH/texmf/doc/ma
+export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
 export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
 
 [[ $- != *i* ]] && return
