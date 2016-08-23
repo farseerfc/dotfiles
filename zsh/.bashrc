@@ -37,7 +37,7 @@ alias 7tar="7z a -mmt"
 alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 
-alias Syu="pacaur -Sy && sudo powerpill -Suw && pacaur -Sua && (pacman -Qtdq | ifne pacaur -Rcs -)"
+alias Syu="pacaur -Sy && sudo powerpill -Suw && pacaur -Su && (pacman -Qtdq | ifne pacaur -Rcs -)"
 
 man() {
 	env \
