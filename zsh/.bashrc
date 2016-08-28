@@ -6,7 +6,7 @@
 
 TEXLIVEPATH=/usr/local/texlive/2016
 
-export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:/home/farseerfc/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:/home/farseerfc/.local/bin
+export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:~/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:~/.local/bin
 export MANPATH=$MANPATH:$TEXLIVEPATH/texmf/doc/ma
 export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
 export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
@@ -19,7 +19,7 @@ alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
 alias grep='grep --color'
-alias g="git annex"
+alias g="git-annex"
 alias k="kde-open"
 alias x="xdg-open"
 export LESS="-R"
@@ -29,6 +29,7 @@ alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
 alias .="source"
 alias cp="cp -i --reflink=auto"
+alias ssh="TERM=xterm-256color ssh"
 alias bc="bc -l"
 
 alias gtar="tar -Ipigz czfv"
@@ -38,6 +39,21 @@ alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 
 alias Syu="pacaur -Sy && sudo powerpill -Suw && pacaur -Su && (pacman -Qtdq | ifne pacaur -Rcs -)"
+alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+imgvim(){
+    curl -F "name=@$1" https://img.vim-cn.com/
+}
+
+simg(){
+    scrot $@ -e 'curl -F \"name=@$f\" https://img.vim-cn.com/'
+}
+
+alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
+
+tcn() {
+    curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
+}
 
 man() {
 	env \
@@ -98,6 +114,16 @@ PAGER='less -X -M' export LESSOPEN="| pygmentize -f console -O bg=dark %s" expor
 
 EDITOR="vim"
 export EDITOR
+
+function ranger-cd {
+    tempfile="$(mktemp)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
 
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
