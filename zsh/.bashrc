@@ -70,6 +70,9 @@ man() {
 			man "$@"
 }
 
+ga-ncdu() {
+    ga-ncdu.pl $@ | ncdu -f-
+}
 
 function _git_prompt() {
     local git_status="`git status -unormal 2>&1`"
