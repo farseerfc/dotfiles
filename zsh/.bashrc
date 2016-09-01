@@ -71,7 +71,7 @@ man() {
 }
 
 ga-ncdu() {
-    ga-ncdu.pl $@ | ncdu -f-
+    ga-ncdu.pl ${1=.}| ncdu -f-
 }
 
 function _git_prompt() {
