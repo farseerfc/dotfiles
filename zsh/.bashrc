@@ -73,7 +73,8 @@ man() {
 }
 
 ga-ncdu() {
-    ga-ncdu.pl ${1=.}| ncdu -f-
+    OUTPUT=$(ga-ncdu.pl ${1=.})
+    echo -n $OUTPUT | ncdu -f-
 }
 
 function _git_prompt() {
