@@ -39,10 +39,10 @@ alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 
 function Syu(){
-    pacaur -Sy && sudo powerpill -Suw $@ && pacaur -Su $@
-    pacman -Qtdq | ifne pacaur -Rcs -
-    pacaur -Sua
+    pacaur -Sy && sudo powerpill -Suw $@ && pacaur -Su $@ && pacman -Qtdq | ifne pacaur -Rcs - && pacaur -Sua
 }
+
+alias Rcs="pacaur -Rcs"
 
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
@@ -58,6 +58,11 @@ alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 
 tcn() {
     curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
+}
+
+dsf(){
+    # depends on diff-so-fancy
+    git diff --color=always $@ | diff-so-fancy | less
 }
 
 man() {
