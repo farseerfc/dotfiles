@@ -39,7 +39,8 @@ alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 
 function Syu(){
-    pacaur -Sy && sudo powerpill -Suw $@ && pacaur -Su $@ && pacman -Qtdq | ifne pacaur -Rcs - && pacaur -Sua
+    sudo powerpill -Syuw $@ && pacaur -Syu $@
+    pacman -Qtdq | ifne pacaur -Rcs -
 }
 
 alias Rcs="pacaur -Rcs"
