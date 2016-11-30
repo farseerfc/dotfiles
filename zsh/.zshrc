@@ -45,6 +45,8 @@ source $ZSH/oh-my-zsh.sh
 
 POWERLINE=/usr/lib/python3.5/site-packages/powerline
 
+powerline-daemon -q  # run powerline daemon
+
 source $POWERLINE/bindings/zsh/powerline.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
