@@ -142,4 +142,3 @@ function ranger-cd {
 
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
-if [ -e /home/farseerfc/.nix-profile/etc/profile.d/nix.sh ]; then . /home/farseerfc/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

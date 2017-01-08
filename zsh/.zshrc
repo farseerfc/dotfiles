@@ -43,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/pypy/bin
 
-POWERLINE=/usr/lib/python3.5/site-packages/powerline
+POWERLINE=/usr/lib/python3.6/site-packages/powerline
 
 powerline-daemon -q  # run powerline daemon
 
