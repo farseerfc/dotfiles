@@ -32,6 +32,9 @@
 			},
 			{
 				"function": "powerline.segments.common.vcs.branch",
+				"args": {
+					"status_colors": true
+				},
 				"priority": 40
 			},
             {
