@@ -38,12 +38,23 @@ alias 7tar="7z a -mmt"
 alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 
+# pacman aliases and functions
 function Syu(){
-    pacaur -Sy && sudo powerpill -Suw $@ && pacaur -Su $@
-    pacman -Qtdq | ifne pacaur -Rcs -
+    sudo pacman -Sy && sudo powerpill -Suw $@ && sudo pacman -Su $@
+    pacman -Qtdq | ifne sudo pacaur -Rcs -
 }
 
-alias Rcs="pacaur -Rcs"
+alias Rcs="sudo pacman -Rcs"
+alias Ss="sudo pacman -Ss"
+alias Si="sudo pacman -Si"
+alias Qs="sudo pacman -Qs"
+alias Qi="sudo pacman -Qi"
+alias Qo="sudo pacman -Qo"
+alias Ql="sudo pacman -Ql"
+alias Fo="sudo pacman -Fo"
+alias Fy="sudo pacman -Fy"
+alias Ssa="pacaur -Ssa"
+
 
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
