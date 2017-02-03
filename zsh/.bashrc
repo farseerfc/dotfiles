@@ -45,13 +45,13 @@ function Syu(){
 }
 
 alias Rcs="sudo pacman -Rcs"
-alias Ss="sudo pacman -Ss"
-alias Si="sudo pacman -Si"
-alias Qs="sudo pacman -Qs"
-alias Qi="sudo pacman -Qi"
-alias Qo="sudo pacman -Qo"
-alias Ql="sudo pacman -Ql"
-alias Fo="sudo pacman -Fo"
+alias Ss="pacman -Ss"
+alias Si="pacman -Si"
+alias Qs="pacman -Qs"
+alias Qi="pacman -Qi"
+alias Qo="pacman -Qo"
+alias Ql="pacman -Ql"
+alias Fo="pacman -Fo"
 alias Fy="sudo pacman -Fy"
 alias Ssa="pacaur -Ssa"
 
