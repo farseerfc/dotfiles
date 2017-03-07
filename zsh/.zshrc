@@ -62,6 +62,10 @@ bindkey "^[[2~" quoted-insert
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 export SHELL=/bin/zsh
 
+# completion for Syu
+compdef -e "words[1]=(pacman -Su);service=pacman;((CURRENT+=1));_pacman" Syu
+
+
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
 
