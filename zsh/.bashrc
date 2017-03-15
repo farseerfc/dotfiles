@@ -55,6 +55,11 @@ alias Fo="pacman -Fo"
 alias Fy="sudo pacman -Fy"
 alias Ssa="pacaur -Ssa"
 
+function G() {
+    [ -z "$1" ] && echo "usage: G <aur package name>: get AUR package PKGBUILD"
+    git clone --separate-git-dir $(mktemp -du) aur@aur.archlinux.org:"$1".git
+    rm "$1"/.git
+}
 
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
