@@ -1,0 +1,15 @@
+[Unit]
+Description=Reverse SSH Tunnel
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+User=farseerfc
+ExecStart=/usr/bin/ssh -NTC -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no  -R %i:localhost:22 vultr.farseerfc.me
+
+# Restart every >2 seconds to avoid StartLimitInterval failure
+RestartSec=3
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
