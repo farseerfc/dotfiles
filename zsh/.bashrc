@@ -73,6 +73,10 @@ simg(){
 
 alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 
+fs() {
+  curl -F "c=@${1:--}" http://fars.ee/
+}
+
 tcn() {
     curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
 }
