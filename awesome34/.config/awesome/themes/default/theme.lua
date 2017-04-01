@@ -76,7 +76,6 @@ theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/defau
 -- You can use your own command to set your wallpaper
 theme.wallpaper_cmd = { "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
                         "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
-                        "feh -z --bg-fill /home/farseerfc/annex/photos/wallVert/",
                         "feh -z --bg-fill /home/farseerfc/annex/photos/wallpaper/" }
 
 -- You can use your own layout icons like this:
