@@ -74,7 +74,7 @@ simg(){
 alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 
 fs() {
-  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | xsel -bi
+  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -pi -e 'chomp if eof' | xsel -bi
 }
 
 tcn() {
