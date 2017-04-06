@@ -55,11 +55,18 @@ alias Fo="pacman -Fo"
 alias Fy="sudo pacman -Fy"
 alias Ssa="pacaur -Ssa"
 
-function G() {
-    [ -z "$1" ] && echo "usage: G <aur package name>: get AUR package PKGBUILD"
-    git clone --separate-git-dir $(mktemp -du) aur@aur.archlinux.org:"$1".git
-    rm "$1"/.git
+function Ga() {
+    [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD"
+    git clone aur@aur.archlinux.org:"$1".git
 }
+
+function G() {
+    [ -z "$2" ] && echo "usage: $0 <$1 package name>: get $1 package PKGBUILD"
+    git clone https://git.archlinux.org/svntogit/$1.git/ -b packages/$2 --single-branch $2
+}
+
+alias Ge="G packages"
+alias Gc="G community"
 
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
