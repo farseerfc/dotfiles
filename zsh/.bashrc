@@ -56,17 +56,20 @@ alias Fy="sudo pacman -Fy"
 alias Ssa="pacaur -Ssa"
 
 function Ga() {
-    [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD"
+    [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD" && return 1
     git clone aur@aur.archlinux.org:"$1".git
+    rm -rf "$1"/.git
 }
 
 function G() {
-    [ -z "$2" ] && echo "usage: $0 <$1 package name>: get $1 package PKGBUILD"
-    git clone https://git.archlinux.org/svntogit/$1.git/ -b packages/$2 --single-branch $2
+    [ -z "$3" ] && echo "usage: $0 <$2 package name>: get $2 package PKGBUILD" && return 1
+    git clone https://git.archlinux.org/svntogit/$1.git/ -b packages/$3 --single-branch $3
+    mv "$3"/trunk/* "$3"
+    rm -rf "$3"/{repos,trunk,.git}
 }
 
-alias Ge="G packages"
-alias Gc="G community"
+alias Ge="G packages core/extra"
+alias Gc="G community community"
 
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
