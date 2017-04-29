@@ -1,0 +1,15 @@
+[Unit]
+Description=Dynamic SSH tunnel
+ConditionPathExists=|/usr/bin
+
+[Service]
+Type=forking
+User=farseerfc
+ExecStart=/usr/bin/ssh -TNCf -o ServerAliveInterval=10 -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no -D 1080 %i
+
+# Restart every >2 seconds to avoid StartLimitInterval failure
+RestartSec=3
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
