@@ -1,0 +1,9 @@
+[Unit]
+Description=Dynamic SSH tunnel socket
+PartOf=dynamic-ssh-tunnel@.service
+
+[Socket]
+ListenStream=127.0.0.1:1080
+
+[Install]
+WantedBy=sockets.target

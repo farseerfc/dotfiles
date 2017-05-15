@@ -1,6 +1,9 @@
 [Unit]
 Description=Dynamic SSH tunnel
 ConditionPathExists=|/usr/bin
+Wants=network-online.target
+After=network.target network-online.target dynamic-ssh-tunnel@.socket
+Requires=dynamic-ssh-tunnel@%i.socket
 
 [Service]
 Type=forking
