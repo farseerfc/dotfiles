@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/zip;application/x-zip-compressed;application/octet-stream;
+Actions=unzipsjis;unzipgbk;
+X-KDE-Submenu=Unzip as
+
+[Desktop Action unzipsjis]
+Name=Unzip here shift-jis
+Icon=kfm
+Exec="unzip" "-O" "sjis" "%U"
+
+[Desktop Action unzipgbk]
+Name=Unzip here GBK
+Icon=kfm
+Exec="unzip" "-O" "gb18030" "%U"
