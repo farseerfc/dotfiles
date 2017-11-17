@@ -43,15 +43,15 @@ def bat__power():
 
 @command('charge full', 'float', 0, 30)
 def charge__full():
-    return float(cat('/sys/class/power_supply/max170xx_battery/charge_full'))*3.7/1000000
+    return float(cat('/sys/class/power_supply/max170xx_battery/charge_full'))*3.5/1000000
 
 @command('charge full design', 'float', 0, 30)
 def charge__full_design():
-    return float(cat('/sys/class/power_supply/max170xx_battery/charge_full_design'))*3.7/1000000
+    return float(cat('/sys/class/power_supply/max170xx_battery/charge_full_design'))*3.5/1000000
 
 @command('charge now', 'float', 0, 30)
 def charge__now():
-    return float(cat('/sys/class/power_supply/max170xx_battery/charge_now'))*3.7/1000000
+    return float(cat('/sys/class/power_supply/max170xx_battery/charge_now'))*3.5/1000000
 
 def main():
     print("ksysguardd 1.2.0")
