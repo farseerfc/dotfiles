@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE KSysGuardWorkSheet>
+<WorkSheet title="電源" locked="0" interval="2" columns="1" rows="3">
+ <host command="/home/farseerfc/gpd-power.py" shell="" port="-1" name="gpd"/>
+ <display row="0" vDistance="30" title="Voltage (V)" rowSpan="1" class="FancyPlotter" autoRange="1" stacked="0" manualRange="0" unit="" showUnit="0" hScale="6" hLines="1" svgBackground="" vScroll="0" fontSize="8" column="0" labels="1" vLines="0" version="1" columnSpan="1">
+  <beam sensorType="float" hostName="gpd" sensorName="bat/voltage" color="0xff0057ae"/>
+  <beam sensorType="float" hostName="gpd" sensorName="source/voltage" color="0xffe20800"/>
+ </display>
+ <display row="1" vDistance="30" title="Current (A)" rowSpan="1" class="FancyPlotter" autoRange="1" stacked="0" manualRange="0" unit="" showUnit="0" hScale="6" hLines="1" svgBackground="" vScroll="0" fontSize="8" column="0" labels="1" vLines="0" version="1" columnSpan="1">
+  <beam sensorType="float" hostName="gpd" sensorName="bat/current" color="0xff0057ae"/>
+  <beam sensorType="float" hostName="gpd" sensorName="source/current" color="0xffe20800"/>
+ </display>
+ <display row="2" vDistance="30" title="Power (W)" rowSpan="1" class="FancyPlotter" autoRange="1" stacked="0" manualRange="0" unit="" showUnit="0" hScale="6" hLines="1" svgBackground="" vScroll="0" fontSize="8" column="0" labels="1" vLines="0" version="1" columnSpan="1">
+  <beam sensorType="float" hostName="gpd" sensorName="bat/power" color="0xff0057ae"/>
+  <beam sensorType="float" hostName="gpd" sensorName="source/power" color="0xffe20800"/>
+ </display>
+</WorkSheet>
