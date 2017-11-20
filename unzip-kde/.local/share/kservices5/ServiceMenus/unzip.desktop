@@ -7,10 +7,10 @@ X-KDE-Submenu=Unzip as
 
 [Desktop Action unzipsjis]
 Name=Unzip here shift-jis
-Icon=kfm
+Icon=application-zip
 Exec="unzip" "-O" "sjis" "%U"
 
 [Desktop Action unzipgbk]
 Name=Unzip here GBK
-Icon=kfm
+Icon=application-zip
 Exec="unzip" "-O" "gb18030" "%U"
