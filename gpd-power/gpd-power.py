@@ -14,7 +14,12 @@ def command(dtype, desc, rangemin, rangemax):
     return wrap
     
 def cat(path):
-    return open(path).read()
+    try:
+        data = open(path).read()
+        v = float(data)
+        return data
+    except:
+        return '0'
 
 @command('battary voltage now', 'float', 0, 15.0)
 def bat__voltage():
