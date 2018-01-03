@@ -48,13 +48,20 @@ function Syu(){
 alias Rcs="sudo pacman -Rcs"
 alias Ss="pacman -Ss"
 alias Si="pacman -Si"
+alias Sl="pacman -Sl"
+alias Sg="pacman -Sg"
 alias Qs="pacman -Qs"
 alias Qi="pacman -Qi"
 alias Qo="pacman -Qo"
 alias Ql="pacman -Ql"
+alias Qlp="pacman -Qlp"
+alias Qm="pacman -Qm"
+alias Qn="pacman -Qn"
+alias U="sudo pacman -U"
 alias Fo="pacman -Fo"
 alias Fy="sudo pacman -Fy"
-alias Ssa="pacaur -Ssa"
+alias Ssa="cower -c -s"
+alias Sas="cower -c -s"
 
 function Ga() {
     [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD" && return 1
