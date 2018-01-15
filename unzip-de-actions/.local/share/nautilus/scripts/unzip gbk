@@ -1,0 +1,2 @@
+#!/bin/sh
+exec unzip -O gb18030 -- "$@"
