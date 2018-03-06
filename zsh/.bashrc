@@ -20,7 +20,7 @@ alias la='ls -la'
 alias lh='ls -lh'
 alias grep='grep --color'
 alias g="git-annex"
-alias k="kde-open"
+alias k="kde-open5"
 alias x="xdg-open"
 export LESS="-R"
 
