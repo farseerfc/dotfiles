@@ -104,6 +104,10 @@ dsf(){
     git diff --color=always $@ | diff-so-fancy | less
 }
 
+aha-pipe() {
+    $@ | ansi2html -m -t "$*" | sed '/.ansi2html-content {/a .ansi2html-content {font-family: monospace;}'
+}
+
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;37m") \
