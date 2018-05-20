@@ -69,6 +69,8 @@ compdef -e "words[1]=(pacman -Su);service=pacman;((CURRENT+=1));_pacman" Syu
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
 
+# change systemd-boot default entry to reboot to windows
+alias reboot-windows="sudo efivar -w -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderEntryDefault -f =(echo -n 'windows\0' | iconv -f utf-8 -t utf-16le)"
 
 # Automatically change the directory in bash after closing ranger
 #
