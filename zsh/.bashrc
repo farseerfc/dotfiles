@@ -80,6 +80,8 @@ function G() {
 alias Ge="G packages core/extra"
 alias Gc="G community community"
 
+alias rankpacman='sed "s/^#//" /etc/pacman.d/mirrorlist.pacnew | rankmirrors -n 10 - | sudo tee /etc/pacman.d/mirrorlist'
+
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 imgvim(){
@@ -93,7 +95,7 @@ simg(){
 alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 
 fs() {
-  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | xsel -bi
+  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | xclip -i -selection clipboard
 }
 
 tcn() {
@@ -152,11 +154,6 @@ function _prompt_command() {
 }
 PROMPT_COMMAND=_prompt_command
 
-function bbscp(){
-src-hilite-lesspipe.sh $@ | \
-sed 's/'$(echo -e "\033")'/'`echo -e "\033\033"`'/g' | \
-tee /dev/tty | xsel -bi
-}
 function wiki(){
 dig +short txt $@.wp.dg.cx
 }
