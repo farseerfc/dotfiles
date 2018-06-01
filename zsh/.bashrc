@@ -30,7 +30,7 @@ alias restart="sudo systemctl restart"
 alias .="source"
 alias cp="cp -i --reflink=auto"
 alias ssh="TERM=xterm-256color ssh"
-alias bc="bc -l"
+alias bc="bc -lq"
 alias pvb="pv -W -F'Sent Total:%b In %t Cur:%r Avg:%a %p'"
 
 alias gtar="tar -Ipigz czfv"
