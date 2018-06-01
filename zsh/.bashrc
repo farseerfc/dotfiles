@@ -77,6 +77,11 @@ function G() {
     rm -rf "$3"/{repos,trunk,.git}
 }
 
+function Gw() {
+    [ -z "$1" ] && echo "usage: Gw <package name> [directory (default to pwd)]: get package file *.pkg.tar.xz from pacman cache" && return 1
+    sudo pacman -Sw "$1" && cp /var/cache/pacman/pkg/$1*.pkg.tar.xz ${2:-.}
+}
+
 alias Ge="G packages core/extra"
 alias Gc="G community community"
 
