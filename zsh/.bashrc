@@ -22,7 +22,7 @@ alias grep='grep --color'
 alias g="git-annex"
 alias k="kde-open5"
 alias x="xdg-open"
-export LESS="-R"
+export LESS="-R -N"
 
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
