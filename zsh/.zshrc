@@ -37,6 +37,7 @@ plugins=(git archlinux compleat pip history-substring-search gnu-utils python \
 alias -g colorcopy="| sed 's/'\$(echo -e \"\\033\")'/'\$(echo -e \"\\033\\033\")'/g' | tee /dev/tty | xsel -bi"
 
 DISABLE_AUTO_UPDATE=true
+[[ -d ~/.cache/oh-my-zsh ]] || mkdir ~/.cache/oh-my-zsh
 ZSH_CACHE_DIR=~/.cache/oh-my-zsh
 
 source $ZSH/oh-my-zsh.sh
