@@ -66,8 +66,12 @@ alias Sas="cower -c -s"
 
 function Ga() {
     [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD" && return 1
-    git clone aur@aur.archlinux.org:"$1".git
-    rm -rf "$1"/.git
+    TMPDIR=$(mktemp -d)
+    git clone aur@aur.archlinux.org:"$1".git "$TMPDIR"
+    rm -rf "$TMPDIR"/.git
+    mkdir -p "$1"
+    cp -r -i "$TMPDIR"/* "$1"/
+    rm -rf "$TMPDIR"
 }
 
 function G() {
