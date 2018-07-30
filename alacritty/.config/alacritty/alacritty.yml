@@ -12,23 +12,22 @@ env:
   # Note that some xterm terminfo databases don't declare support for italics.
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
-  #TERM: xterm-256color
-  TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions in character columns and lines
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
   dimensions:
-    columns: 120
-    lines: 36
+    columns: 80
+    lines: 24
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 0
-    y: 0
+    x: 2
+    y: 2
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
@@ -62,27 +61,24 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    #family: monospace # should be "Menlo" or something on macOS.
-      family: "monospace"
+    family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-      #family: monospace # should be "Menlo" or something on macOS.
-      family: "monospace"
+    family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-      #family: monospace # should be "Menlo" or something on macOS.
-      family: "monospace"
+    family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Italic
 
   # Point size of the font
-  size: 8.0
+  size: 11.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -96,6 +92,12 @@ font:
   glyph_offset:
     x: 0
     y: 0
+
+  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
+  # screens and make reading text a little easier.
+  # On X11 it is possible to change the DPI for each instance of alacritty by using
+  # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
+  scale_with_dpi: true
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -115,6 +117,15 @@ colors:
   primary:
     background: '0x000000'
     foreground: '0xeaeaea'
+
+    # (Optional) Bright and Dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #
+    # dim_foreground: '0x9a9a9a'
+    # bright_foreground: '0xffffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
@@ -178,7 +189,7 @@ colors:
 #
 visual_bell:
   animation: EaseOutExpo
-  duration: 100
+  duration: 0
 
 # Background opacity
 background_opacity: 0.8
@@ -235,6 +246,9 @@ hide_cursor_when_typing: false
 # - Beam
 cursor_style: Block
 
+# Whether the cursor should be a hollow block on window focus loss
+unfocused_hollow_cursor: true
+
 # Live config reload (changes require restart)
 live_config_reload: true
 
@@ -290,6 +304,8 @@ live_config_reload: true
 key_bindings:
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
+  - { key: Paste,                   action: Paste                        }
+  - { key: Copy,                    action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
