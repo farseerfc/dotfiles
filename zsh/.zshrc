@@ -45,11 +45,11 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/pypy/bin
 
-POWERLINE=/usr/lib/python3.6/site-packages/powerline
+POWERLINE_BINDINGS=/usr/share/powerline/bindings/
 
 powerline-daemon -q  # run powerline daemon
 
-source $POWERLINE/bindings/zsh/powerline.zsh
+source $POWERLINE_BINDINGS/zsh/powerline.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # key bindings fixes for urxvt
