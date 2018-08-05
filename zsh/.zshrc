@@ -66,6 +66,8 @@ export SHELL=/bin/zsh
 
 # completion for Syu
 compdef -e "words[1]=(pacman -Su);service=pacman;((CURRENT+=1));_pacman" Syu
+compdef -e "words[1]=(cower -d);service=cower;((CURRENT+=1));_cower" Ga
+compdef -e "words[1]=(cower -s);service=cower;((CURRENT+=1));_cower" Ssa
 
 
 # added by travis gem
