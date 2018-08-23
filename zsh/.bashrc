@@ -32,6 +32,7 @@ alias cp="cp -i --reflink=auto"
 alias ssh="TERM=xterm-256color ssh"
 alias bc="bc -lq"
 alias pvb="pv -W -F'Sent Total:%b In %t Cur:%r Avg:%a %p'"
+alias kwin-transparent="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0"
 
 alias gtar="tar -Ipigz czfv"
 alias btar="tar -Ilbzip2 cjfv"
