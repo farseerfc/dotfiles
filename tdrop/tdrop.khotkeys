@@ -23,7 +23,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_1Actions0]
-CommandURL=tdrop -w 100% -h 100% -s tdrop alacritty
+CommandURL=tdrop -w 100% -h 100% -s tdrop -f "--config-file ~/.config/alacritty/tdrop.yml" alacritty
 Type=COMMAND_URL
 
 [Data_1_1Conditions]
@@ -40,5 +40,5 @@ Type=SHORTCUT
 Uuid={c908b5be-0bbb-4685-8349-10084ae39ecc}
 
 [Main]
-AllowMerge=false
+AllowMerge=true
 Version=2
