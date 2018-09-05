@@ -31,7 +31,7 @@ alias .="source"
 alias cp="cp -i --reflink=auto"
 alias ssh="TERM=xterm-256color ssh"
 alias bc="bc -lq"
-alias pvb="pv -W -F'Sent Total:%b In %t Cur:%r Avg:%a %p'"
+alias pvb="pv -W -F'All:%b In:%t Cu:%r Av:%a %p'"
 alias kwin-blur="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0"
 alias kwin-clear="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -remove _KDE_NET_WM_BLUR_BEHIND_REGION"
 
@@ -111,6 +111,11 @@ alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 fs() {
   curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | xclip -i -selection clipboard
 }
+
+
+alias clipboard="xclip -selection clipboard"
+alias Ci="clipboard -i"
+alias Co="clipboard -o"
 
 tcn() {
     curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
