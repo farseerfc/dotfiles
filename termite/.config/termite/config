@@ -124,7 +124,7 @@ browser = chromium
 
 # Molokai theme
 # [colors]
-background= rgba(32,32,32,0.9)
+background= rgba(31,34,39,0.62)
 foreground= #d0d0d0
 #foreground= #66ff66
 highlight = #505050

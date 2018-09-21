@@ -9,9 +9,8 @@ Requirements
 
 These requirements are listed as their package names in Arch Linux::
 
-	python2-powerline-git
-	oh-my-zsh-git
 	zsh-syntax-highlighting
+	grml-zsh-config
 
 
 License
