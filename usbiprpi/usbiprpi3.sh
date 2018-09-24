@@ -1,5 +1,8 @@
 #/bin/sh
 rpi3="192.168.0.21"
+
+modprobe vhci-hcd
+
 allusb=$(usbip list -p -r $rpi3 | cut -d":" -f1 -s | sed 's|^[ \t]*||;/^$/d')
 for busid in $allusb
 do
