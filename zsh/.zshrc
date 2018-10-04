@@ -20,6 +20,10 @@ bindkey "^[[6~" end-of-history
 bindkey "^[[3~" delete-char
 bindkey "^[[2~" quoted-insert
 
+# key bindings fixes for alacritty/konsole
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 export SHELL=/bin/zsh
