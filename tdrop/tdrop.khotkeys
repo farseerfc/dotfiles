@@ -23,7 +23,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_1Actions0]
-CommandURL=tdrop -w 100% -h 100% -s tdrop -f "--config-file ~/.config/alacritty/tdrop.yml" alacritty
+CommandURL=tdrop -m -w 100% -h 100% -s tdrop -f "--config-file ~/.config/alacritty/tdrop.yml" alacritty
 Type=COMMAND_URL
 
 [Data_1_1Conditions]
