@@ -18,6 +18,10 @@
 			},
 			{
 				"function": "powerline.segments.shell.cwd",
+				"args": {
+					"dir_shorten_len": 3,
+					"dir_limit_depth": 3
+				},
 				"priority": 10
 			},
 			{
@@ -37,12 +41,21 @@
 				},
 				"priority": 40
 			},
-            {
+			{
 				"function": "powerline.segments.common.time.date",
 				"priority": 10,
-                "args": {
-                    "format": "%m-%d %H:%M:%S"
-                }
+				"args": {
+					"format": "%Y/%m/%d",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"priority": 10,
+				"args": {
+					"format": "%H:%M:%S",
+					"istime": false
+				}
 			}
 		]
 	}

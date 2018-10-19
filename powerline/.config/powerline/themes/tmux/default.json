@@ -2,12 +2,21 @@
 	"segments": {
 		"right": [
 			{
+				"function": "powerline.segments.common.vcs.branch",
+				"args": {
+					"status_colors": true
+				}
+			},
+			{
 				"function": "powerline.segments.common.sys.uptime",
 				"priority": 50
 			},
 			{
 				"function": "powerline.segments.common.sys.system_load",
 				"priority": 50
+			},
+			{
+				"function": "powerline.segments.tmux.attached_clients"
 			},
 			{
 				"function": "powerline.segments.common.time.date"
