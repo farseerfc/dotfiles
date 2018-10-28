@@ -61,19 +61,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: monospace # should be "Menlo" or something on macOS.
+    family: Fira Code for Powerline # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-    family: monospace # should be "Menlo" or something on macOS.
+    family: Fira Code for Powerline # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: monospace # should be "Menlo" or something on macOS.
+    family: Fira Code for Powerline # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Italic
 
@@ -115,7 +115,7 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x1f2227'
+    background: '0x2f343f'
     foreground: '0xeaeaea'
 
     # (Optional) Bright and Dim foreground colors
@@ -192,7 +192,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.62
+background_opacity: 0.50
 
 # Mouse bindings
 #
@@ -310,8 +310,8 @@ key_bindings:
   - { key: W,        mods: Command, action: Quit                         }
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
-  - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: At,   mods: Control, action: IncreaseFontSize             }
+  - { key: Subtract,   mods: Control, action: DecreaseFontSize             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
