@@ -11,6 +11,7 @@ powerline-daemon -q  # run powerline daemon
 
 source $POWERLINE_BINDINGS/zsh/powerline.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # key bindings fixes for urxvt
 bindkey "^[[7~" beginning-of-line

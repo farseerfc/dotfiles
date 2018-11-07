@@ -2,6 +2,17 @@
 	"segments": {
 		"right": [
 			{
+				"function": "powerline.segments.common.bat.battery",
+				"args": {
+					"gamify": true,
+					"steps": 5,
+					"full_heart": "🈵",
+					"empty_heart": "🈳",
+					"online": "🔜",
+					"offline": "📴"
+				}
+			},
+			{
 				"function": "powerline.segments.common.vcs.branch",
 				"args": {
 					"status_colors": true
