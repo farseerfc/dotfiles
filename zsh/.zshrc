@@ -10,8 +10,9 @@ POWERLINE_BINDINGS=/usr/share/powerline/bindings/
 powerline-daemon -q  # run powerline daemon
 
 source $POWERLINE_BINDINGS/zsh/powerline.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # key bindings fixes for urxvt
 bindkey "^[[7~" beginning-of-line
@@ -21,9 +22,11 @@ bindkey "^[[6~" end-of-history
 bindkey "^[[3~" delete-char
 bindkey "^[[2~" quoted-insert
 
-# key bindings fixes for alacritty/konsole
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
