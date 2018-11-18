@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ~/th07
+LANG=ja_JP.UTF-8 STEAM_COMPAT_DATA_PATH=~/th07/.proton/ ~/.steam/steam/steamapps/common/Proton\ 3.16/proton run ./th07.exe

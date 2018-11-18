@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ~/th06
+STEAM_COMPAT_DATA_PATH=~/th06/.proton/ ~/.steam/steam/steamapps/common/Proton\ 3.16/proton run ./custom.exe
