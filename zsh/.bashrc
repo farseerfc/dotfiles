@@ -80,7 +80,6 @@ function Ga() {
 }
 
 function G() {
-    [ -z "$3" ] && echo "usage: $0 <$2 package name>: get $2 package PKGBUILD" && return 1
     git clone https://git.archlinux.org/svntogit/$1.git/ -b packages/$3 --single-branch $3
     mv "$3"/trunk/* "$3"
     rm -rf "$3"/{repos,trunk,.git}
@@ -91,8 +90,19 @@ function Gw() {
     sudo pacman -Sw "$1" && cp /var/cache/pacman/pkg/$1*.pkg.tar.xz ${2:-.}
 }
 
-alias Ge="G packages core/extra"
-alias Gc="G community community"
+function Ge() {
+    [ -z "$@" ] && echo "usage: $0 <core/extra package name>: get core/extra package PKGBUILD" && return 1
+    for i in $@; do
+    	G packages core/extra $i
+    done
+}
+
+function Gc() {
+    [ -z "$@" ] && echo "usage: $0 <community package name>: get community package PKGBUILD" && return 1
+    for i in $@; do
+    	G community community $i
+    done
+}
 
 alias rankpacman='sed "s/^#//" /etc/pacman.d/mirrorlist.pacnew | rankmirrors -n 10 - | sudo tee /etc/pacman.d/mirrorlist'
 
