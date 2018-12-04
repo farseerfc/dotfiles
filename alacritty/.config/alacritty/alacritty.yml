@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
+  decorations: full
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
@@ -93,12 +93,6 @@ font:
     x: 0
     y: 0
 
-  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
-  # screens and make reading text a little easier.
-  # On X11 it is possible to change the DPI for each instance of alacritty by using
-  # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
-  scale_with_dpi: false
-
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
@@ -107,9 +101,6 @@ font:
 # Should display the render timer
 render_timer: false
 
-# Use custom cursor colors. If true, display the cursor in the cursor.foreground
-# and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -230,13 +221,13 @@ mouse:
   #
   # To disable this completely, set `faux_scrollback_lines` to 0.
   faux_scrolling_lines: 1
+  hide_when_typing: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
 
 # Style of the cursor
 #
@@ -244,10 +235,11 @@ hide_cursor_when_typing: false
 # - Block
 # - Underline
 # - Beam
-cursor_style: Block
 
 # Whether the cursor should be a hollow block on window focus loss
-unfocused_hollow_cursor: true
+cursor:
+  unfocused_hollow: true
+  style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
