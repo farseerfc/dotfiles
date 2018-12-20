@@ -120,14 +120,15 @@ simg(){
 
 alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
 
-fs() {
-  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | xclip -i -selection clipboard
-}
-
 
 alias clipboard="xclip -selection clipboard"
 alias Ci="clipboard -i"
 alias Co="clipboard -o"
+alias Copng="Co -target image/png"
+
+fs() {
+  curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | Ci
+}
 
 tcn() {
     curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
