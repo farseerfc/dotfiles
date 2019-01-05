@@ -127,7 +127,7 @@ alias Co="clipboard -o"
 alias Copng="Co -target image/png"
 
 Ct(){
-    t=$(mktemp furigana-XXXX)
+    t=$(mktemp /tmp/furigana-XXXX)
     python -m furigana.furigana $(Co) | sed 's@<ruby><rb>@ :ruby:`@g;s@</rb><rt>@|@g;s@</rt></ruby>@` @g' | sponge $t
     cat $t | tee /dev/tty | perl -pe 'chomp if eof' | Ci
 }
