@@ -24,6 +24,12 @@ Name=mozc
 # Layout
 Layout=
 
+[Groups/0/Items/3]
+# Name
+Name=pinyin
+# Layout
+Layout=
+
 [GroupOrder]
 0=Default
 

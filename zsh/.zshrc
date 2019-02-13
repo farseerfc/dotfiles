@@ -6,10 +6,10 @@ alias -g colorcopy="| sed 's/'\$(echo -e \"\\033\")'/'\$(echo -e \"\\033\\033\")
 prompt off
 
 POWERLINE_BINDINGS=/usr/share/powerline/bindings/
-
 powerline-daemon -q  # run powerline daemon
-
 source $POWERLINE_BINDINGS/zsh/powerline.zsh
+
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
