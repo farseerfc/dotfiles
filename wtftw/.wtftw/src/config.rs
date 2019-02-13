@@ -27,7 +27,7 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
     config.general.border_color = 0x404040;
     config.general.focus_border_color = 0xebebeb;
     config.general.border_width = 2;
-    config.general.terminal = (String::from("termite"), String::from(""));
+    config.general.terminal = (String::from("alacritty"), String::from(""));
     config.general.layout = LayoutCollection::new(vec!(
             GapLayout::new(8, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), BinarySpacePartition::new())),
             GapLayout::new(8, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), MirrorLayout::new(BinarySpacePartition::new()))),
