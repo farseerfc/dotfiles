@@ -2,7 +2,6 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
 
 TEXLIVEPATH=/usr/local/texlive/2016
 
@@ -12,6 +11,7 @@ export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
 export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
 export PYTHONPATH=$PYTHONPATH:~/github/winterpy/pylib
 
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 #alias ls='ls --color=auto'
@@ -29,6 +29,7 @@ export LESS="-R -N"
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
+
 alias .="source"
 alias cp="cp -i --reflink=auto"
 alias ssh="TERM=xterm-256color ssh"
@@ -36,14 +37,15 @@ alias bc="bc -lq"
 alias pvb="pv -W -F'All:%b In:%t Cu:%r Av:%a %p'"
 alias kwin-blur="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0"
 alias kwin-clear="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -remove _KDE_NET_WM_BLUR_BEHIND_REGION"
-
 alias gtar="tar -Ipigz czfv"
 alias btar="tar -Ilbzip2 cjfv"
 alias 7tar="7z a -mmt" 
 alias xcp="rsync -aviHAXKhP --delete --exclude='*~' --exclude=__pycache__"
 alias tmux="tmux -2"
 alias :q="exit"
+alias :w="sync"
 alias :x="sync && exit"
+alias :wq="sync && exit"
 
 # pacman aliases and functions
 function Syu(){
@@ -136,10 +138,6 @@ Ct(){
 
 fs() {
   curl -s -F "c=@${1:--}" "https://fars.ee/?u=1" | tee /dev/tty | perl -p -e 'chomp if eof' | Ci
-}
-
-tcn() {
-    curl "http://api.t.sina.com.cn/short_url/shorten.json?source=2333871470&url_long=$1"
 }
 
 dsf(){

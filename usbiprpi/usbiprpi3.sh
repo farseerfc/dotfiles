@@ -1,5 +1,5 @@
 #/bin/sh
-rpi3="192.168.0.21"
+rpi3="192.168.0.117"
 
 modprobe vhci-hcd
 
