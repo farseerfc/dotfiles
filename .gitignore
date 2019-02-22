@@ -1,4 +1,6 @@
 *~
 ssh/.ssh/*
 !ssh/.ssh/ssh_config
+!ssh/.ssh/config
+!ssh/.ssh/*.config
 *.log
