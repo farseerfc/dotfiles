@@ -214,8 +214,9 @@ export SHELLCHECK_OPTS="-e SC2164"
 (
 echo "export pkgdir='' srcdir=''"
 cat $@
-echo "export pkgname pkgbase pkgdesc arch pkgver pkgrel license install url "
-echo "export source source_x86_64"
+echo ""
+echo "export pkgname pkgbase pkgdesc arch pkgver pkgrel license install url"
+echo "export source source_x86_64 backup"
 echo "export depends makedepends optdepends checkdepends"
 echo "export provides conflicts replaces"
 echo "export sha256sums sha512sums md5sums"
