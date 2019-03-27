@@ -4,6 +4,8 @@ alias -g colorcopy="| sed 's/'\$(echo -e \"\\033\")'/'\$(echo -e \"\\033\\033\")
 
 # grml-zsh unset prompt
 prompt off
+# grml-zsh unset aliases
+unalias lsd
 
 POWERLINE_BINDINGS=/usr/share/powerline/bindings/
 powerline-daemon -q  # run powerline daemon
