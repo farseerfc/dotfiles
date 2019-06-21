@@ -31,11 +31,11 @@
 0=Down
 
 [Behavior]
-# 預設啟用
+# 默认状态为激活
 ActiveByDefault=False
-# 當切換輸入法時顯示輸入法資訊
+# 切换输入法时显示输入法信息
 ShowInputMethodInformation=True
-# 預設頁面大小
+# 默认页大小
 DefaultPageSize=5
 # Force Enabled Addons
 EnabledAddons=
