@@ -28,6 +28,9 @@ bindkey "^[[2~" quoted-insert
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
+bindkey "^[p" up-line-or-search
+bindkey "^[n" down-line-or-search
+
 bindkey "^[OA" history-substring-search-up
 bindkey "^[OB" history-substring-search-down
 
