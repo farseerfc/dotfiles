@@ -14,19 +14,19 @@ Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=rime
+Name=pinyin
 # Layout
 Layout=
 
 [Groups/0/Items/2]
 # Name
-Name=mozc
+Name=rime
 # Layout
 Layout=
 
 [Groups/0/Items/3]
 # Name
-Name=pinyin
+Name=mozc
 # Layout
 Layout=
 

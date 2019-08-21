@@ -44,6 +44,11 @@ compdef -e "words[1]=(cower -d);service=cower;((CURRENT+=1));_cower" Ga
 compdef -e "words[1]=(cower -s);service=cower;((CURRENT+=1));_cower" Ssa
 
 
+# zsh_stats from oh-my-zsh https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/functions.zsh
+function zsh_stats() {
+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
+
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
 
