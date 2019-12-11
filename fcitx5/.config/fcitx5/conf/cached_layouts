@@ -258,6 +258,41 @@ Description="键盘 - 汉语"
 Language=zh
 Label=cn
 
+[keyboard-cn-mon_trad]
+Description="键盘 - 汉语 - Mongolian (Bichig)"
+Language=mvf
+Label=cn
+
+[keyboard-cn-mon_trad_todo]
+Description="键盘 - 汉语 - Mongolian Todo"
+Language=mvf
+Label=cn
+
+[keyboard-cn-mon_trad_xibe]
+Description="键盘 - 汉语 - Mongolian Xibe"
+Language=sjo
+Label=cn
+
+[keyboard-cn-mon_trad_manchu]
+Description="键盘 - 汉语 - Mongolian Manchu"
+Language=mnc
+Label=cn
+
+[keyboard-cn-mon_trad_galik]
+Description="键盘 - 汉语 - Mongolian Galik"
+Language=mvf
+Label=cn
+
+[keyboard-cn-mon_todo_galik]
+Description="键盘 - 汉语 - Mongolian Todo Galik"
+Language=mvf
+Label=cn
+
+[keyboard-cn-mon_manchu_galik]
+Description="键盘 - 汉语 - Mongolian Manchu Galik"
+Language=mnc
+Label=cn
+
 [keyboard-cn-tib]
 Description="键盘 - 汉语 - 藏语"
 Language=bo
@@ -438,7 +473,7 @@ Description="键盘 - 波斯语 - 库尔德语（伊朗，拉丁 Alt-Q）"
 Language=ku
 Label=ir
 
-[keyboard-ir-ara]
+[keyboard-ir-ku_ara]
 Description="键盘 - 波斯语 - 库尔德语(伊朗，阿拉伯-拉丁)"
 Language=ku
 Label=ir
@@ -473,6 +508,11 @@ Description="键盘 - 捷克 - Czech (QWERTY, extended backslash)"
 Language=cs
 Label=cz
 
+[keyboard-cz-qwerty-mac]
+Description="键盘 - 捷克 - Czech (QWERTY, Macintosh)"
+Language=cs
+Label=cz
+
 [keyboard-cz-ucw]
 Description="键盘 - 捷克 - Czech (UCW, only accented letters)"
 Language=cs
@@ -500,6 +540,16 @@ Label=cz
 
 [keyboard-cz-typo]
 Description="键盘 - 捷克 - Czech (typographic)"
+Language=cs
+Label=cz
+
+[keyboard-cz-coder]
+Description="键盘 - 捷克 - Czech (coder)"
+Language=cs
+Label=cz
+
+[keyboard-cz-prog_typo]
+Description="键盘 - 捷克 - Czech (programming, typographic)"
 Language=cs
 Label=cz
 
@@ -869,12 +919,17 @@ Language=fr
 Label=fr
 
 [keyboard-fr-bepo]
-Description="键盘 - 法语 - 法語 (Bepo，人體工學，Dvorak 方式)"
+Description="键盘 - 法语 - o, ergonomic, Dvorak way)"
 Language=fr
 Label=fr
 
 [keyboard-fr-bepo_latin9]
 Description="键盘 - 法语 - French (Bepo, ergonomic, Dvorak way, Latin-9 only)"
+Language=fr
+Label=fr
+
+[keyboard-fr-bepo_afnor]
+Description="键盘 - 法语 - French (Bepo, ergonomic, Dvorak way, AFNOR)"
 Language=fr
 Label=fr
 
@@ -890,6 +945,11 @@ Label=fr
 
 [keyboard-fr-azerty]
 Description="键盘 - 法语 - French (AZERTY)"
+Language=fr
+Label=fr
+
+[keyboard-fr-afnor]
+Description="键盘 - 法语 - French (AFNOR standardized AZERTY)"
 Language=fr
 Label=fr
 
@@ -929,7 +989,12 @@ Language=fr
 Label=fr
 
 [keyboard-id]
-Description="键盘 - Indonesian (Jawi)"
+Description="键盘 - Indonesian (Arab Melayu, phonetic)"
+Language=id
+Label=id
+
+[keyboard-id-phoneticx]
+Description="键盘 - Indonesian (Arab Melayu, phonetic) - Indonesian (Arab Melayu, ext. phonetic)"
 Language=id
 Label=id
 
@@ -1249,7 +1314,7 @@ Language=it
 Label=it
 
 [keyboard-it-nodeadkeys]
-Description="键盘 - 意大利语 - ian (no dead keys)"
+Description="键盘 - 意大利语 - 意大利语（无死键）"
 Language=it
 Label=it
 
@@ -1969,7 +2034,7 @@ Language=mk
 Label=mk
 
 [keyboard-mk-nodeadkeys]
-Description="键盘 - 马其顿语 - Macedonian (no dead keys)"
+Description="键盘 - 马其顿语 - o dead keys)"
 Language=mk
 Label=mk
 
@@ -2619,7 +2684,7 @@ Language=ku
 Label=tr
 
 [keyboard-tr-intl]
-Description="键盘 - 土耳其 - 土耳其语（国际，带死键）"
+Description="键盘 - 土耳其 - d keys)"
 Language=tr
 Label=tr
 
@@ -3015,7 +3080,7 @@ Label=de
 
 [keyboard-de-ru]
 Description="键盘 - 德语 - 俄語 (德國，音標)"
-Language=
+Language=ru
 Label=de
 
 [keyboard-de-deadtilde]
@@ -3198,6 +3263,11 @@ Description="键盘 - 英语（美国） - 塞尔维亚-克罗地亚语(美国�
 Language=en
 Label=us
 
+[keyboard-us-norman]
+Description="键盘 - 英语（美国） - English (Norman)"
+Language=en
+Label=us
+
 [keyboard-us-workman]
 Description="键盘 - 英语（美国） - 英語 (Workman 配置)"
 Language=en
@@ -3240,11 +3310,6 @@ Label=us
 
 [keyboard-us-sun_type6]
 Description="键盘 - 英语（美国） - 英語 (美式，昇陽 Type 6/7)"
-Language=en
-Label=us
-
-[keyboard-us-norman]
-Description="键盘 - 英语（美国） - English (Norman)"
 Language=en
 Label=us
 

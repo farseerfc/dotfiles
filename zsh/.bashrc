@@ -11,6 +11,14 @@ export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
 export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
 export PYTHONPATH=$PYTHONPATH:~/github/winterpy/pylib
 
+
+# perl path added by cpan
+PATH="/home/farseerfc/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/farseerfc/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/farseerfc/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/farseerfc/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/farseerfc/perl5"; export PERL_MM_OPT;
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -50,7 +58,9 @@ alias :wq="sync && exit"
 # pacman aliases and functions
 function Syu(){
     sudo pacman -Sy && sudo powerpill -Suw $@ && sudo pacman -Su $@
+    sudo pacman -Fy
     pacman -Qtdq | ifne sudo pacman -Rcs -
+    wait
 }
 
 alias Rcs="sudo pacman -Rcs"
@@ -66,7 +76,9 @@ alias Qlp="pacman -Qlp"
 alias Qm="pacman -Qm"
 alias Qn="pacman -Qn"
 alias U="sudo pacman -U"
-alias Fo="pacman -Fo"
+alias F="pacman -F"
+alias Fo="pacman -F"
+alias Fs="pacman -F"
 alias Fl="pacman -Fl"
 alias Fy="sudo pacman -Fy"
 alias Sy="sudo pacman -Sy"

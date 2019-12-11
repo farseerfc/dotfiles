@@ -40,8 +40,17 @@ export SHELL=/bin/zsh
 
 # completion for Syu
 compdef -e "words[1]=(pacman -Su);service=pacman;((CURRENT+=1));_pacman" Syu Ge Gc Gw
-compdef -e "words[1]=(cower -d);service=cower;((CURRENT+=1));_cower" Ga
-compdef -e "words[1]=(cower -s);service=cower;((CURRENT+=1));_cower" Ssa
+compdef -e "words[1]=(pikaur -G);service=cower;((CURRENT+=1));_pikaur" Ga
+compdef -e "words[1]=(pikaur -Ssa);service=cower;((CURRENT+=1));_pikaur" Ssa
+
+# add a command line to the shells history without executing it
+commit-to-history () {
+        print -s ${(z)BUFFER}
+        zle send-break
+}
+zle -N commit-to-history
+bindkey -M viins "^x^h" commit-to-history
+bindkey -M emacs "^x^h" commit-to-history
 
 
 # zsh_stats from oh-my-zsh https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/functions.zsh

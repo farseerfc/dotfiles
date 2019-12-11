@@ -36,7 +36,7 @@ ActiveByDefault=False
 # 切换输入法时显示输入法信息
 ShowInputMethodInformation=True
 # 默认页大小
-DefaultPageSize=5
+DefaultPageSize=8
 # Force Enabled Addons
 EnabledAddons=
 # Force Disabled Addons
