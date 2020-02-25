@@ -38,6 +38,11 @@ Description="键盘 - APL - APL Keyboard Symbols: APLX Unified APL Layout"
 Language=en
 Label=apl
 
+[keyboard-jv]
+Description="键盘 - Indonesian (Javanese)"
+Language=
+Label=jv
+
 [keyboard-dk]
 Description="键盘 - 丹麦语"
 Language=da
@@ -919,7 +924,7 @@ Language=fr
 Label=fr
 
 [keyboard-fr-bepo]
-Description="键盘 - 法语 - o, ergonomic, Dvorak way)"
+Description="键盘 - 法语 - 法語 (Bepo，人體工學，Dvorak 方式)"
 Language=fr
 Label=fr
 
@@ -1198,6 +1203,11 @@ Description="键盘 - 芬兰语"
 Language=fi
 Label=fi
 
+[keyboard-fi-winkeys]
+Description="键盘 - 芬兰语 - 芬兰语（Winkeys）"
+Language=fi
+Label=fi
+
 [keyboard-fi-classic]
 Description="键盘 - 芬兰语 - 芬兰语（经典）"
 Language=fi
@@ -1205,11 +1215,6 @@ Label=fi
 
 [keyboard-fi-nodeadkeys]
 Description="键盘 - 芬兰语 - 芬兰语（经典，无死键）"
-Language=fi
-Label=fi
-
-[keyboard-fi-winkeys]
-Description="键盘 - 芬兰语 - 芬兰语（Winkeys）"
 Language=fi
 Label=fi
 
@@ -1223,18 +1228,18 @@ Description="键盘 - 芬兰语 - 芬兰语(Mac)"
 Language=fi
 Label=fi
 
-[keyboard-fi-das]
-Description="键盘 - 芬兰语 - Finnish (DAS)"
-Language=fi
-Label=fi
-
 [keyboard-fi-sun_type6]
 Description="键盘 - 芬兰语 - 芬蘭語 (昇陽 Type 6/7)"
 Language=fi
 Label=fi
 
+[keyboard-fi-das]
+Description="键盘 - 芬兰语 - Finnish (DAS)"
+Language=fi
+Label=fi
+
 [keyboard-fi-fidvorak]
-Description="键盘 - 芬兰语 - Finnish Dvorak"
+Description="键盘 - 芬兰语 - Finnish (Dvorak)"
 Language=fi
 Label=fi
 
@@ -1663,7 +1668,7 @@ Description="键盘 - 葡萄牙(巴西) - Portuguese (Brazil, IBM/Lenovo ThinkPa
 Language=pt
 Label=br
 
-[keyboard-br-sun_type6]
+[keyboard-br-pe6]
 Description="键盘 - 葡萄牙(巴西) - 葡萄牙語 (巴西，昇陽 Type 6/7)"
 Language=pt
 Label=br
@@ -1765,6 +1770,11 @@ Label=al
 
 [keyboard-al-plisi]
 Description="键盘 - 阿尔巴尼亚 - Albanian (Plisi)"
+Language=sq
+Label=al
+
+[keyboard-al-veqilharxhi]
+Description="键盘 - 阿尔巴尼亚 - Albanian (Veqilharxhi)"
 Language=sq
 Label=al
 
@@ -1871,6 +1881,11 @@ Label=lt
 [keyboard-lt-lekpa]
 Description="键盘 - 立陶宛语 - 立陶宛语 (LEKPa)"
 Language=lt
+Label=lt
+
+[keyboard-lt-sgs]
+Description="键盘 - 立陶宛语 - Samogitian"
+Language=sgs
 Label=lt
 
 [keyboard-lt-us_dvorak]
@@ -2034,7 +2049,7 @@ Language=mk
 Label=mk
 
 [keyboard-mk-nodeadkeys]
-Description="键盘 - 马其顿语 - o dead keys)"
+Description="键盘 - 马其顿语 - Macedonian (no dead keys)"
 Language=mk
 Label=mk
 
@@ -2393,6 +2408,11 @@ Description="键盘 - 俄语 - Russian (Rulemak, phonetic Colemak)"
 Language=ru
 Label=ru
 
+[keyboard-ru-phonetic_mac]
+Description="键盘 - 俄语 - Russian (phonetic Macintosh)"
+Language=ru
+Label=ru
+
 [keyboard-ru-sun_type6]
 Description="键盘 - 俄语 - 俄語 (昇陽 Type 6/7)"
 Language=ru
@@ -2425,6 +2445,11 @@ Label=sk
 
 [keyboard-sk-qwerty_bksl]
 Description="键盘 - 斯洛伐克语 - Slovak (QWERTY, extended backslash)"
+Language=sk
+Label=sk
+
+[keyboard-sk-acc]
+Description="键盘 - 斯洛伐克语 - Slovak (ACC layout, only accented letters)"
 Language=sk
 Label=sk
 
@@ -2679,12 +2704,12 @@ Language=ku
 Label=tr
 
 [keyboard-tr-ku_alt]
-Description="键盘 - 土耳其 - 库尔德语(土耳其，拉丁 Alt-Q)"
+Description="键盘 - 土耳其 - Turkey, Latin Alt-Q)"
 Language=ku
 Label=tr
 
 [keyboard-tr-intl]
-Description="键盘 - 土耳其 - d keys)"
+Description="键盘 - 土耳其 - 土耳其语（国际，带死键）"
 Language=tr
 Label=tr
 
@@ -2989,7 +3014,7 @@ Language=
 Label=brai
 
 [keyboard-brai-right_hand]
-Description="键盘 - 盲人點字符號 - Braille (right-handed)"
+Description="键盘 - 盲人點字符號 - t-handed)"
 Language=
 Label=brai
 
@@ -3029,7 +3054,7 @@ Language=ro
 Label=de
 
 [keyboard-de-ro_nodeadkeys]
-Description="键盘 - 德语 - 罗马尼亚语（德国，无死键）"
+Description="键盘 - 德语 - )"
 Language=ro
 Label=de
 
@@ -3300,6 +3325,16 @@ Label=us
 
 [keyboard-us-cz_sk_de]
 Description="键盘 - 英语（美国） - Czech Slovak and German (US)"
+Language=en
+Label=us
+
+[keyboard-us-drix]
+Description="键盘 - 英语（美国） - English (Drix)"
+Language=en
+Label=us
+
+[keyboard-us-de_se_fi]
+Description="键盘 - 英语（美国） - German, Swedish and Finnish (US)"
 Language=en
 Label=us
 
