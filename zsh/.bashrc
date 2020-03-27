@@ -57,7 +57,7 @@ alias :wq="sync && exit"
 
 # pacman aliases and functions
 function Syu(){
-    sudo pacman -Sy && sudo powerpill -Suw $@ && sudo pacman -Su $@ && sync
+    sudo pacsync && sudo powerpill -Suw $@ && sudo pacman -Su $@ && sync
     sudo pacman -Fy && sync
     pacman -Qtdq | ifne sudo pacman -Rcs -
     sync
