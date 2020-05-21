@@ -23,10 +23,10 @@ PERL_MM_OPT="INSTALL_BASE=/home/farseerfc/perl5"; export PERL_MM_OPT;
 [[ $- != *i* ]] && return
 
 #alias ls='ls --color=auto'
-alias ls='exa'
+alias ls='exa -gb'
 
 alias ll='ls -l'
-alias la='ls -la'
+alias la='ls -laa'
 alias lh='ls -lh'
 alias grep='grep --color'
 alias g="git-annex"
