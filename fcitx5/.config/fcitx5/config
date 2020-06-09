@@ -1,7 +1,10 @@
+[Hotkey]
+# 反复按切换键时进行轮换
+EnumerateWithTriggerKeys=True
+
 [Hotkey/TriggerKeys]
 0=Control+space
-1=Zenkaku_Hankaku
-2=Hangul
+1=Hangul
 
 [Hotkey/AltTriggerKeys]
 0=Shift_L
@@ -30,11 +33,21 @@
 [Hotkey/NextPage]
 0=Down
 
+[Hotkey/PrevCandidate]
+0=Shift+Tab
+
+[Hotkey/NextCandidate]
+0=Tab
+
 [Behavior]
 # 默认状态为激活
 ActiveByDefault=False
+# 共享输入状态
+ShareInputState=No
 # 切换输入法时显示输入法信息
 ShowInputMethodInformation=True
+# 在焦点更改时显示输入法信息
+showInputMethodInformationWhenFocusIn=False
 # 默认页大小
 DefaultPageSize=8
 # Force Enabled Addons
