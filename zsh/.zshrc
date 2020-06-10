@@ -58,6 +58,9 @@ function zsh_stats() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
+# set end of file mark
+export PROMPT_EOL_MARK="%B%F{red}🔚"
+
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
 
