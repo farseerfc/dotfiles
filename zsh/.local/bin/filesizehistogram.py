@@ -7,11 +7,9 @@ from bisect import bisect_left
 
 
 def numfmt(s):
-    marks = " KMGTP"
+    marks = "KMGTP"
     m = 0
-    f = False
-    if type(s) is float:
-       f = True
+    f = type(s) is float
     while s >= 1024 and m < len(marks):
         if f:
             s /= 1024.0
@@ -19,9 +17,9 @@ def numfmt(s):
             s //=1024
         m += 1
     if f:
-        return f"{s:.2f}{marks[m]}"
+        return f"{s:.2f}{marks[m-1:m]}"
     else:
-        return f"{s}{marks[m]}"
+        return f"{s}{marks[m-1:m]}"
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -43,25 +41,26 @@ if __name__ == '__main__':
     mean = float(data.mean())
     bmedian = bisect_left(bins, median) - 1
     bmean = bisect_left(bins, mean) - 1
+    files = len(data)
+    total = data.sum()
 
     hist, bin_edges = np.histogram(data,bins)
     fig,ax = plt.subplots()
-    ax.bar(range(len(hist)),hist,width=0.8)
+    ax.bar(range(len(hist)), hist, width=0.9)
     ax.set_xticks([i for i,j in enumerate(hist)])
-    ax.set_xticklabels(['{} - {}:\n{}'.format(numfmt(bins[i]), numfmt(bins[i+1]), hist[i]) for i in range(0, len(hist)-1)] +
-                       ["{} - :\n{}".format(numfmt(bins[len(hist)-1]), hist[-1])])
-    ax.xaxis.set_tick_params(rotation=30)
+    ax.set_xticklabels(['{}{}~{}'.format('┊\n'*(i%3), numfmt(bins[i]), numfmt(bins[i+1])) for i in range(len(hist)-1)] +
+                       ["{}~".format(numfmt(bins[len(hist)-1]))])
 
     ax.axvline(bmean, color='k', linestyle='dashed', linewidth=1)
-    ax.axvline(bmedian, color='r', linestyle='dashed', linewidth=1)
+    ax.axvline(bmedian, color='r', linestyle='dashed', linewidth=2)
     min_ylim, max_ylim = plt.ylim()
     min_xlim, max_xlim = plt.xlim()
-    ax.text(bmean+0.5, max_ylim*0.8, 'Mean: {}'.format(numfmt(mean)))
-    ax.text(bmedian+0.5, max_ylim*0.9, 'Median: {}'.format(numfmt(median)))
-    ax.text(max_xlim*0.9, max_ylim*0.9, 'Files: {}'.format(len(data)))
-    ax.text(max_xlim*0.9, max_ylim*0.8, 'Total: {}'.format(numfmt(float(data.sum()))))
+    ax.text(bmean+0.5, max_ylim*0.9, 'Mean: {}'.format(numfmt(mean)))
+    ax.text(bmedian+0.5, max_ylim*0.9, 'Median: {}'.format(numfmt(median)), color='r')
+    ax.text(max_xlim*0.8, max_ylim*0.9, 'Files: {}'.format(files))
+    ax.text(max_xlim*0.9, max_ylim*0.9, 'Total: {}'.format(numfmt(float(total))))
 
-    #for i in range(len(hist)):
-    #    ax.text(i-0.5, hist[i], str(hist[i]))
+    for i in range(len(hist)):
+        ax.text(i-0.5, hist[i] + files/400, f"{hist[i]:5}") # label on top of every bar
 
     plt.show()
