@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
@@ -22,13 +23,18 @@ def numfmt(s):
         return f"{s}{marks[m-1:m]}"
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('Usage: filesizehistogram.py input')
-        print('       can use "-" as input filename, indicate input is taken from stdin.')
-        print('       otherwise input file should be a result of "find -printf \'%s %p\\n\'"')
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        prog = "filesizehistogram",
+        description = """
+            can use "-" as input filename, indicate input is taken from stdin.
+            otherwise input file should be a result of "find -printf \'%s %p\\n\'"
+            """
+    )
+    parser.add_argument('-o', '--output', help="output filename, will recognize common extensions by matplot")
+    parser.add_argument('input', nargs='+',  help="input filenames")
+    args = parser.parse_args()
 
-    filenames = [x if x != '-' else '/dev/stdin' for x in sys.argv[1:]]
+    filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
     mindatalog2 = 5 # cut from 32
     maxdatalog2 = min(ceil(log2(data.max())), 31) # cut at 1G and above
@@ -43,7 +49,7 @@ if __name__ == '__main__':
     total = data.sum()
 
     hist, bin_edges = np.histogram(data,bins)
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize=(20,8))
     ax.bar(range(len(hist)), hist, width=0.9)
     ax.set_xticks([i for i in range(len(hist))])
     tickbar = "┊\n"
@@ -62,4 +68,7 @@ if __name__ == '__main__':
     for i in range(len(hist)):
         ax.text(i - 0.5, hist[i] + files / 400, f"{hist[i]:5}") # label on top of every bar, uplefted a little
 
-    plt.show()
+    if args.output:
+        plt.savefig(args.output)
+    else:
+        plt.show()
