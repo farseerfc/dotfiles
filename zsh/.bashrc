@@ -240,6 +240,9 @@ PAGER='less -X -M' export LESSOPEN="| pygmentize -f console -O bg=dark %s" expor
 EDITOR="vim"
 export EDITOR
 
+# S_COLORS for sysstat
+export S_COLORS=auto
+
 function ranger-cd {
     tempfile="$(mktemp)"
     /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
