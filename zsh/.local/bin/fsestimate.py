@@ -22,33 +22,59 @@ def numfmt(s):
     else:
         return f"{s}{marks[m-1:m]}"
 
+s1k = 1024
+s4k = s1k * 4
+s32k = s1k * 32
+s128k = s1k * 128
 
-class Fat32:
-    
-    def __init__(self, cluster_size=4096):
-        self.clusters = 0
-        self.clustersize = cluster_size
-        self.fat_entries = 0
-        self.report_entries = ['clusters', 'fat_entries', 'total_size'] 
-    
-    def fallocate(self, size):
-        use_clusters = ceil(size / 4096)
-        self.clusters += use_clusters
-        self.fat_entries += 1
-
-    def total_size(self):
-        return self.clusters * self.clustersize
-
+class BaseFS:
     def __str__(self):
+        parameter = []
+        for e in type(self).parameters:
+            if e in self.__dict__:
+                parameter += (f'{e}={numfmt(self.__dict__[e])}',)
+            else:
+                r = getattr(type(self), e)(self)
+                parameter += (f'{e}={numfmt(r)}',)
+        fspara =  "\t".join(parameter)
+        
         result = []
-        for e in self.report_entries:
+        for e in type(self).reports:
             if e in self.__dict__:
                 result += (f'{e}: {numfmt(self.__dict__[e])}',)
             else:
                 r = getattr(type(self), e)(self)
                 result += (f'{e}: {numfmt(r)}',)
                 
-        return "\t".join(result)
+        report = "\t".join(result)
+        return f'{type(self).__name__}({fspara}):\t{report}'
+
+class Fat32 (BaseFS):
+    reports = ['clusters', 'fat_entries', 'total_size', 'fat_clusters', 'total_clusters']
+    parameters = ['cluster_size']
+    
+    def __init__(self, cluster_size=s32k):
+        self.clusters = 0
+        self.cluster_size = cluster_size
+        self.fat_entries = 0
+    
+    def fat_clusters(self):
+        return ceil(self.fat_entries * 4 / self.cluster_size)
+    
+    def total_clusters(self):
+        return self.fat_clusters() + self.clusters
+    
+    def fallocate(self, size):
+        use_clusters = ceil(size / self.cluster_size)
+        self.clusters += use_clusters
+        self.fat_entries += use_clusters
+
+    def total_size(self):
+        return self.total_clusters() * self.cluster_size
+
+class ExFat(Fat32):
+    def __init__(self, cluster_size=s128k):
+        Fat32.__init__(self, cluster_size=cluster_size)
     
 
 if __name__ == '__main__':
@@ -66,7 +92,9 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
+    fs = [Fat32(), ExFat()]
     fat32 = Fat32()
     for i in data:
-        fat32.fallocate(i)
-    print(fat32)
+        for f in fs:
+            f.fallocate(i)
+    print("\n".join(str(x) for x in fs))
