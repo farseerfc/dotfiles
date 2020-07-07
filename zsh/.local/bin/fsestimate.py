@@ -28,6 +28,9 @@ s32k = s1k * 32
 s128k = s1k * 128
 
 class BaseFS:
+    reports = []
+    parameters = []
+
     def __str__(self):
         parameter = []
         for e in type(self).parameters:
@@ -36,7 +39,7 @@ class BaseFS:
             else:
                 r = getattr(type(self), e)(self)
                 parameter += (f'{e}={numfmt(r)}',)
-        fspara =  "\t".join(parameter)
+        fspara =  ",\t".join(parameter)
         
         result = []
         for e in type(self).reports:
@@ -49,20 +52,32 @@ class BaseFS:
         report = "\t".join(result)
         return f'{type(self).__name__}({fspara}):\t{report}'
 
+class Stats (BaseFS):
+    reports = ['total_size', 'files']
+
+    def __init__(self):
+        self.total_size = 0
+        self.files = 0
+
+    def fallocate(self, size):
+        self.total_size += size
+        self.files += 1
+
 class Fat32 (BaseFS):
     reports = ['clusters', 'fat_entries', 'total_size', 'fat_clusters', 'total_clusters']
-    parameters = ['cluster_size']
+    parameters = ['cluster_size', 'fat_copies']
     
-    def __init__(self, cluster_size=s32k):
+    def __init__(self, cluster_size=s32k, fat_copies=2):
         self.clusters = 0
         self.cluster_size = cluster_size
         self.fat_entries = 0
+        self.fat_copies = fat_copies
     
     def fat_clusters(self):
         return ceil(self.fat_entries * 4 / self.cluster_size)
     
     def total_clusters(self):
-        return self.fat_clusters() + self.clusters
+        return self.fat_clusters() * self.fat_copies + self.clusters
     
     def fallocate(self, size):
         use_clusters = ceil(size / self.cluster_size)
@@ -73,8 +88,8 @@ class Fat32 (BaseFS):
         return self.total_clusters() * self.cluster_size
 
 class ExFat(Fat32):
-    def __init__(self, cluster_size=s128k):
-        Fat32.__init__(self, cluster_size=cluster_size)
+    def __init__(self, cluster_size=s128k, fat_copies=1):
+        Fat32.__init__(self, cluster_size=cluster_size, fat_copies=fat_copies)
     
 
 if __name__ == '__main__':
@@ -92,7 +107,7 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
-    fs = [Fat32(), ExFat()]
+    fs = [Stats(), Fat32(), ExFat()]
     fat32 = Fat32()
     for i in data:
         for f in fs:

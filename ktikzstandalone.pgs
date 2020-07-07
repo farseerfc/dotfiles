@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{xeCJK,fontspec,xunicode}
+\usepackage{tikz}
+\setCJKmainfont{Noto Sans CJK TC}
+\begin{document}
+\begin{tikzpicture} 
+<>
+\end{tikzpicture}
+\end{document}
