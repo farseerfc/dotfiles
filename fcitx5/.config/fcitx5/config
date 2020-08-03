@@ -43,7 +43,7 @@ EnumerateWithTriggerKeys=True
 # 默认状态为激活
 ActiveByDefault=False
 # 共享输入状态
-ShareInputState=No
+ShareInputState=Program
 # 切换输入法时显示输入法信息
 ShowInputMethodInformation=True
 # 在焦点更改时显示输入法信息

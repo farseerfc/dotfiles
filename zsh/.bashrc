@@ -39,7 +39,7 @@ alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
 
 alias .="source"
-alias cp="cp -i --reflink=auto"
+alias cp="cp -i --reflink=auto --sparse=auto"
 alias ssh="TERM=xterm-256color ssh"
 alias bc="bc -lq"
 alias pvb="pv -W -F'All:%b In:%t Cu:%r Av:%a %p'"
