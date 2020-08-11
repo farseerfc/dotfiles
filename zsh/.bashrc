@@ -124,6 +124,10 @@ function Gc() {
 
 alias rankpacman='sed "s/^#//" /etc/pacman.d/mirrorlist.pacnew | rankmirrors -n 10 - | sudo tee /etc/pacman.d/mirrorlist'
 
+alias limit-run='/usr/bin/time systemd-run --user --pty --same-dir --wait --collect --slice=limit-run.slice '
+alias limit-cpu='/usr/bin/time systemd-run --user --pty --same-dir --wait --collect --slice=limit-cpu.slice '
+alias limit-mem='/usr/bin/time systemd-run --user --pty --same-dir --wait --collect --slice=limit-mem.slice '
+
 alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 imgvim(){

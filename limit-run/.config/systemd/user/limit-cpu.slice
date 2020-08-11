@@ -1,0 +1,3 @@
+[Slice]
+CPUWeight=10
+CPUQuota=380%

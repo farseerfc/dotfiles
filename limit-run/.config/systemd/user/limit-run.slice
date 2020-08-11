@@ -1,0 +1,7 @@
+[Slice]
+CPUWeight=10
+CPUQuota=380%
+MemoryHigh=3G
+MemoryMax=4G
+MemorySwapMax=2G
+IOWeight=10
