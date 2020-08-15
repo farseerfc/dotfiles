@@ -5,9 +5,6 @@ function get_kernels(){
     ls vmlinuz-* | sed "s/vmlinuz-//"
 }
 
-kernels=( $(get_kernels) )
-
-# argv[1] = kernel name
 function get_initramfs(){
     kernel="$1"
     cd /boot || exit
@@ -35,8 +32,8 @@ function get_version(){
 
 function get_options(){
     options="$(sed 's/initrd=\S* //g' /proc/cmdline)"
-    [[ -f /etc/cmdline ]] && options="$(cat /etc/cmdline | tr '\n' ' ')"
-    echo $options
+    [[ -f /etc/cmdline ]] && options="$(tr '\n' ' ' </etc/cmdline)"
+    echo "$options"
 }
 
 function get_ucode(){
@@ -48,22 +45,24 @@ function get_ucode(){
 function write_conf(){
     kernel="$1"
     initramfs="$2"
-    echo -e "title\t$(get_title $kernel $initramfs)"
-    echo -e "version\t$(get_version $kernel)"
-    echo -e "options\t$(get_options $kernel)"
+    echo -e "title\t$(get_title "$kernel" "$initramfs")"
+    echo -e "version\t$(get_version "$kernel")"
+    echo -e "options\t$(get_options "$kernel")"
     echo -e "linux\t/vmlinuz-$kernel"
-    ucodes=( $(get_ucode) ) 
+    mapfile -t ucodes < <(get_ucode)
     for ucode in "${ucodes[@]}"; do
         echo -e "initrd\t/$ucode"
     done
-    echo -e "initrd\t/linux-$initramfs.img"
+    echo -e "initrd\t/initramfs-$initramfs.img"
 }
 
+mapfile -t kernels < <(get_kernels)
+
 for kernel in "${kernels[@]}"; do
-    initramfs=( $(get_initramfs "$kernel") )
+    mapfile -t initramfs < <(get_initramfs "$kernel")
     for initramfs in "${initramfs[@]}"; do
-        filename="$(get_id $kernel)-$initramfs.conf"
+        filename="$(get_id "$kernel")-$initramfs.conf"
         echo -e "\e[1;31m$filename\e[m"
-        write_conf "$kernel" "$initramfs" | tee /boot/loader/entries/$filename
+        write_conf "$kernel" "$initramfs" | tee "/boot/loader/entries/$filename"
     done
 done
