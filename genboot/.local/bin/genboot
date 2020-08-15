@@ -1,0 +1,69 @@
+#!/bin/bash
+
+function get_kernels(){
+    cd /boot || exit
+    ls vmlinuz-* | sed "s/vmlinuz-//"
+}
+
+kernels=( $(get_kernels) )
+
+# argv[1] = kernel name
+function get_initramfs(){
+    kernel="$1"
+    cd /boot || exit
+    [[ -f "initramfs-$kernel.img" ]] && echo "$kernel"
+    [[ -f "initramfs-$kernel-fallback.img" ]] && echo "$kernel-fallback"
+}
+
+function get_title(){
+    kernel="$1"
+    initramfs="$2"
+    source /etc/os-release
+    echo "$NAME ($initramfs)"
+}
+
+function get_id(){
+    kernel="$1"
+    source /etc/os-release
+    echo "$ID"
+}
+
+function get_version(){
+    kernel="$1"
+    file "/boot/vmlinuz-$kernel" | grep -o "version \S*" | sed "s/version //"
+}
+
+function get_options(){
+    options="$(sed 's/initrd=\S* //g' /proc/cmdline)"
+    [[ -f /etc/cmdline ]] && options="$(cat /etc/cmdline | tr '\n' ' ')"
+    echo $options
+}
+
+function get_ucode(){
+    cd /boot || exit
+    [[ -f "intel-ucode.img" ]] && echo "intel-ucode.img"
+    [[ -f "amd-ucode.img" ]] && echo "amd-ucode.img"
+}
+
+function write_conf(){
+    kernel="$1"
+    initramfs="$2"
+    echo -e "title\t$(get_title $kernel $initramfs)"
+    echo -e "version\t$(get_version $kernel)"
+    echo -e "options\t$(get_options $kernel)"
+    echo -e "linux\t/vmlinuz-$kernel"
+    ucodes=( $(get_ucode) ) 
+    for ucode in "${ucodes[@]}"; do
+        echo -e "initrd\t/$ucode"
+    done
+    echo -e "initrd\t/linux-$initramfs.img"
+}
+
+for kernel in "${kernels[@]}"; do
+    initramfs=( $(get_initramfs "$kernel") )
+    for initramfs in "${initramfs[@]}"; do
+        filename="$(get_id $kernel)-$initramfs.conf"
+        echo -e "\e[1;31m$filename\e[m"
+        write_conf "$kernel" "$initramfs" | tee /boot/loader/entries/$filename
+    done
+done
