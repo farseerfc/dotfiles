@@ -2,7 +2,7 @@
 
 function get_kernels(){
     cd /boot || exit
-    ls vmlinuz-* | sed "s/vmlinuz-//"
+    echo vmlinuz-* | tr " " "\n" | sed "s/vmlinuz-//"
 }
 
 function get_initramfs(){
@@ -15,13 +15,13 @@ function get_initramfs(){
 function get_title(){
     kernel="$1"
     initramfs="$2"
-    source /etc/os-release
+    eval "$(grep "^NAME=" /etc/os-release)"
     echo "$NAME ($initramfs)"
 }
 
 function get_id(){
     kernel="$1"
-    source /etc/os-release
+    eval "$(grep "^ID=" /etc/os-release)"
     echo "$ID"
 }
 
