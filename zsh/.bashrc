@@ -60,7 +60,7 @@ function Syu(){
     sudo pacsync && sudo powerpill -Suw $@ && sudo pacman -Su $@ && sync
     pacman -Qtdq | ifne sudo pacman -Rcs - && sync
     sudo pacman -Fy && sync
-    pacdiff -o | ifne pacdiff
+    pacdiff -o
 }
 
 alias Rcs="sudo pacman -Rcs"
