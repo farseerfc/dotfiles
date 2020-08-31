@@ -4,14 +4,17 @@ import argparse
 import numpy as np
 import sys
 import os
-from math import *
+from math import ceil, floor
 from bisect import bisect_left
 from pprint import pprint, pformat
 from yaml import dump as yamldump
 from collections import OrderedDict
 
+HUMAN_NUMFMT = True
 
 def numfmt(s):
+    if not HUMAN_NUMFMT:
+        return s
     marks = "KMGTP"
     m = 0
     f = type(s) is float
@@ -28,13 +31,14 @@ def numfmt(s):
 
 s1k = 1024
 s4k = s1k * 4
+s8k = s1k * 8
 s32k = s1k * 32
 s128k = s1k * 128
 
 def filter_params(params):
     params = params.copy()
-    del params['self']
-    del params['__class__']
+    if 'self' in params: del params['self']
+    if '__class__' in params: del params['__class__']
     return params
 
 class BaseFS:
@@ -108,20 +112,27 @@ class ExFat(Fat32):
     
 class UnixFS(BaseFS):
     parameters = set()
-    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files'])
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks'])
 
-    def __init__(self, inode_size=128, block_size=s4k, inline_size=60, bmap=12, indirect_bmap=s1k):
+    def __init__(self, inode_size=128, block_size=512, inline_size=13*4, inode_bmap=10, indirect_bmap=512//4):
         self.blocks = 0
+        self.indirect_blocks = 0
         self.inodes = 0
         self.inlined_files = 0
         super().__init__(**filter_params(locals()))
 
     def alloc_indirects(self, blocks):
         indirects = 0
-        if(blocks < bmap):
+        if(blocks < self.inode_bmap):
             return 0
-        blocks -= bmap
-        
+        blocks -= self.inode_bmap # first inode_bmap blocks in inode
+        level = 0
+        while blocks > 0:
+            next_level = ceil(blocks / self.indirect_bmap)
+            indirects += next_level
+            blocks = next_level - 1 # 1 indirect block in inode, others need next level indirect blocks
+            level += 1
+        return indirects
 
     def fallocate(self, size):
         if(size < self.inline_size):
@@ -130,15 +141,56 @@ class UnixFS(BaseFS):
         else:
             use_blocks = ceil(size / self.block_size)
         self.inodes += 1
+        self.indirect_blocks += self.alloc_indirects(use_blocks)
         self.blocks += use_blocks
 
+    def inode_blocks(self):
+        return ceil(self.inodes * self.inode_size / self.block_size)
+
     def total_blocks(self):
-        return self.blocks + ceil(self.inodes * self.inode_size / self.block_size)
+        return self.blocks + self.indirect_blocks + self.inode_blocks()
     
     def total_size(self):
         return self.total_blocks() * self.block_size
 
+class FFS(UnixFS):
+    parameters = set()
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'fragments'])
 
+    def __init__(self, inode_size=128, block_size=s8k, fragment_size=s1k, inline_size=0, inode_bmap=10, indirect_bmap=s8k//4):
+        self.fragments = 0
+        self.blocks = 0
+        self.indirect_blocks = 0
+        self.inodes = 0
+        self.inlined_files = 0
+        self.fragments = 0
+        BaseFS.__init__(self, **filter_params(locals()))
+    
+    def fallocate(self, size):
+        use_blocks = floor(size / self.block_size)
+        remain = size - use_blocks * self.block_size
+        use_fragments = ceil(remain / self.fragment_size)
+        if use_fragments == self.block_size // self.fragment_size:
+            use_blocks += 1
+            use_fragments = 0
+        self.fragments += use_fragments
+        self.inodes += 1
+        self.indirect_blocks += self.alloc_indirects(use_blocks)
+        self.blocks += use_blocks
+    
+    def fragment_blocks(self):
+        return ceil(self.fragments / (self.block_size // self.fragment_size))
+    
+    def total_blocks(self):
+        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks()
+
+class F2FS(UnixFS):
+    def __init__(self, inode_size=s4k, block_size=s4k, inline_size=s4k-100, inode_bmap=(s4k-100)//4, indirect_bmap=s1k):
+        super().__init__(**filter_params(locals()))
+
+class Ext3FS(UnixFS):
+    def __init__(self, inode_size=128, block_size=s4k, inline_size=15*4, inode_bmap=12, indirect_bmap=s1k):
+        super().__init__(**filter_params(locals()))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -155,7 +207,7 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
-    fs = [Stats(), Fat32(), ExFat(), UnixFS()]
+    fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext3FS(), F2FS(), FFS()]
     fat32 = Fat32()
     for i in data:
         for f in fs:
