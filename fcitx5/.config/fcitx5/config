@@ -39,6 +39,9 @@ EnumerateWithTriggerKeys=True
 [Hotkey/NextCandidate]
 0=Tab
 
+[Hotkey/TogglePreedit]
+0=Control+Alt+P
+
 [Behavior]
 # 默认状态为激活
 ActiveByDefault=False

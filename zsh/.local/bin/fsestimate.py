@@ -15,6 +15,7 @@ HUMAN_NUMFMT = True
 def numfmt(s):
     if not HUMAN_NUMFMT:
         return s
+    s = float(s)
     marks = "KMGTP"
     m = 0
     f = type(s) is float
@@ -32,8 +33,12 @@ def numfmt(s):
 s1k = 1024
 s4k = s1k * 4
 s8k = s1k * 8
+s16k = s1k * 16
 s32k = s1k * 32
 s128k = s1k * 128
+s1m = s1k * s1k
+s128m = s1m * 128
+s1g = s1m * s1k
 
 def filter_params(params):
     params = params.copy()
@@ -112,9 +117,9 @@ class ExFat(Fat32):
     
 class UnixFS(BaseFS):
     parameters = set()
-    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks'])
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'bg_blocks'])
 
-    def __init__(self, inode_size=128, block_size=512, inline_size=13*4, inode_bmap=10, indirect_bmap=512//4):
+    def __init__(self, inode_size=128, block_size=512, inline_size=13*4, inode_bmap=10, indirect_bmap=512//4, inode_ratio=s4k, bg_size=s128m):
         self.blocks = 0
         self.indirect_blocks = 0
         self.inodes = 0
@@ -145,19 +150,23 @@ class UnixFS(BaseFS):
         self.blocks += use_blocks
 
     def inode_blocks(self):
-        return ceil(self.inodes * self.inode_size / self.block_size)
+        return ceil(self.blocks // self.inode_ratio)
+    
+    def bg_blocks(self):
+        # 2 bitmap block per bg
+        return 2 * ceil(self.blocks * self.block_size / self.bg_size)
 
     def total_blocks(self):
-        return self.blocks + self.indirect_blocks + self.inode_blocks()
+        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.bg_blocks()
     
     def total_size(self):
         return self.total_blocks() * self.block_size
 
 class FFS(UnixFS):
     parameters = set()
-    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'fragments'])
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'fragments', 'bg_blocks'])
 
-    def __init__(self, inode_size=128, block_size=s8k, fragment_size=s1k, inline_size=0, inode_bmap=10, indirect_bmap=s8k//4):
+    def __init__(self, inode_size=128, block_size=s32k, fragment_size=s4k, inline_size=0, inode_bmap=10, indirect_bmap=s32k//4, bg_size=s1g, inode_ratio=s8k):
         self.fragments = 0
         self.blocks = 0
         self.indirect_blocks = 0
@@ -182,15 +191,36 @@ class FFS(UnixFS):
         return ceil(self.fragments / (self.block_size // self.fragment_size))
     
     def total_blocks(self):
-        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks()
+        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks() + self.bg_blocks()
 
 class F2FS(UnixFS):
-    def __init__(self, inode_size=s4k, block_size=s4k, inline_size=s4k-100, inode_bmap=(s4k-100)//4, indirect_bmap=s1k):
+    def __init__(self, inode_size=s4k, block_size=s4k, inline_size=s4k-100, inode_bmap=(s4k-100)//4, indirect_bmap=s1k, inode_ratio=1):
         super().__init__(**filter_params(locals()))
+    
+    def inode_blocks(self):
+        return self.inodes
 
 class Ext3FS(UnixFS):
-    def __init__(self, inode_size=128, block_size=s4k, inline_size=15*4, inode_bmap=12, indirect_bmap=s1k):
+    def __init__(self, inode_size=128, block_size=s4k, inline_size=15*4, inode_bmap=12, indirect_bmap=s1k, inode_ratio=s16k):
         super().__init__(**filter_params(locals()))
+
+class Ext4FS(Ext3FS):
+    def __init__(self, inode_size=256, block_size=s4k, inline_size=15*4+90, inode_bmap=4, indirect_bmap=s4k//12, bg_size=s1g, inode_ratio=s32k):
+        UnixFS.__init__(self, **filter_params(locals()))
+
+    def bg_blocks(self):
+        # 16 bitmap block per flex_bg
+        return 16 * ceil(self.blocks * self.block_size / self.bg_size)
+    
+    def alloc_indirects(self, blocks):
+        # for ext4 single extent header is 12 bytes and each extent entry is 12 bytes
+        # using fg_flex we can put roughly 1G of contiguous address in 1 extent entry
+        extents = blocks * self.block_size // self.bg_size 
+        extents -= self.inode_bmap # first 4 extents can be put into inode bmap space
+        indirects = 0
+        if extents > 0:
+            indirects = ceil(extents * 12 / self.block_size)
+        return indirects
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -207,7 +237,7 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
-    fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext3FS(), F2FS(), FFS()]
+    fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext3FS(), F2FS(), FFS(), Ext4FS()]
     fat32 = Fat32()
     for i in data:
         for f in fs:
