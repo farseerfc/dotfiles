@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import argparse
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import os
@@ -35,6 +35,7 @@ s4k = s1k * 4
 s8k = s1k * 8
 s16k = s1k * 16
 s32k = s1k * 32
+s64k = s1k * 64
 s128k = s1k * 128
 s1m = s1k * s1k
 s128m = s1m * 128
@@ -81,12 +82,15 @@ class Stats (BaseFS):
     parameters = set()
 
     def __init__(self):
-        self.total_size = 0
+        self.totalsize = 0
         self.files = 0
 
     def fallocate(self, size):
-        self.total_size += size
+        self.totalsize += size
         self.files += 1
+    
+    def total_size(self):
+        return self.totalsize
 
 class Fat32 (BaseFS):
     reports = set(['clusters', 'fat_entries', 'total_size', 'fat_clusters', 'total_clusters'])
@@ -237,8 +241,15 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
+    # fs = [Fat32(cluster_size=s1k),
+    #     Fat32(cluster_size=s4k),
+    #     Fat32(cluster_size=s8k),
+    #     Fat32(cluster_size=s16k),
+    #     Fat32(),
+    #     Fat32(cluster_size=s64k),
+    #     Fat32(cluster_size=s128k)]
     fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext3FS(), F2FS(), FFS(), Ext4FS()]
-    fat32 = Fat32()
+    # fat32 = Fat32()
     for i in data:
         for f in fs:
             f.fallocate(i)
@@ -247,3 +258,10 @@ if __name__ == '__main__':
        pdict[f'{f}'] = f.to_dict()
     #pprint(pdict, indent=4, width=os.get_terminal_size().columns)
     print(yamldump(pdict, width=os.get_terminal_size().columns))
+
+    fig,ax = plt.subplots(figsize=(20,8))
+    ax.bar(range(len(fs)), [x.total_size() for x in fs])
+    tickbar = "┊\n"
+    ax.set_xticks([i for i in range(len(fs))])
+    ax.set_xticklabels([tickbar*(i%5)+type(x).__name__ for i,x in enumerate(fs)])
+    plt.show()
