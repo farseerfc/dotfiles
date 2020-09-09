@@ -198,17 +198,17 @@ class FFS(UnixFS):
         return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks() + self.bg_blocks()
 
 class F2FS(UnixFS):
-    def __init__(self, inode_size=s4k, block_size=s4k, inline_size=s4k-100, inode_bmap=(s4k-100)//4, indirect_bmap=s1k, inode_ratio=1):
+    def __init__(self, inode_size=s4k, block_size=s4k, inline_size=3400, inode_bmap=923, indirect_bmap=1018, inode_ratio=1):
         super().__init__(**filter_params(locals()))
     
     def inode_blocks(self):
         return self.inodes
 
-class Ext3FS(UnixFS):
-    def __init__(self, inode_size=128, block_size=s4k, inline_size=15*4, inode_bmap=12, indirect_bmap=s1k, inode_ratio=s16k):
+class Ext2FS(UnixFS):
+    def __init__(self, inode_size=128, block_size=s4k, inline_size=0, inode_bmap=12, indirect_bmap=s1k, inode_ratio=s16k):
         super().__init__(**filter_params(locals()))
 
-class Ext4FS(Ext3FS):
+class Ext4FS(Ext2FS):
     def __init__(self, inode_size=256, block_size=s4k, inline_size=15*4+90, inode_bmap=4, indirect_bmap=s4k//12, bg_size=s1g, inode_ratio=s32k):
         UnixFS.__init__(self, **filter_params(locals()))
 
@@ -226,6 +226,67 @@ class Ext4FS(Ext3FS):
             indirects = ceil(extents * 12 / self.block_size)
         return indirects
 
+
+def compare_fat_cluster_size(data):
+    fs = [Fat32(cluster_size=512),
+          Fat32(cluster_size=s1k),
+          Fat32(cluster_size=s4k),
+          Fat32(cluster_size=s8k),
+          Fat32(cluster_size=s16k),
+          Fat32(cluster_size=s32k),
+          Fat32(cluster_size=s64k),
+          Fat32(cluster_size=s128k)]
+
+    for i in data:
+        for f in fs:
+            f.fallocate(i)
+
+    fig, ax = plt.subplots(figsize=(10,4))
+    ax.bar(range(len(fs)), [x.total_size() for x in fs])
+    tickbar = ""
+    ax.set_xticks([i for i in range(len(fs))])
+    ax.set_xticklabels([tickbar*(i%2) + numfmt(x.cluster_size) for i,x in enumerate(fs)])
+    for i, x in enumerate(fs):
+        ax.text(i-0.25, x.total_size() * 1.01 , f"{numfmt(x.total_size())}")
+    plt.show()
+
+def output_fs_estimate(data):
+    #fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext2FS(), F2FS(), FFS(), Ext4FS()]
+    fs = [Fat32(cluster_size=512),
+        Fat32(cluster_size=s1k),
+        Fat32(cluster_size=s4k),
+        Fat32(cluster_size=s8k),
+        Fat32(cluster_size=s16k),
+        Fat32(cluster_size=s32k),
+        Fat32(cluster_size=s64k),
+        Fat32(cluster_size=s128k)]
+    for i in data:
+        for f in fs:
+            f.fallocate(i)
+    pdict = OrderedDict()
+    for f in fs:
+       pdict[f'{f}'] = f.to_dict()
+    #pprint(pdict, indent=4, width=os.get_terminal_size().columns)
+    print(yamldump(pdict, width=os.get_terminal_size().columns))
+
+def output_fat_estimate(data):
+    fs = [Fat32(cluster_size=512),
+        Fat32(cluster_size=s1k),
+        Fat32(cluster_size=s4k),
+        Fat32(cluster_size=s8k),
+        Fat32(cluster_size=s16k),
+        Fat32(cluster_size=s32k),
+        Fat32(cluster_size=s64k),
+        Fat32(cluster_size=s128k)]
+    for i in data:
+        for f in fs:
+            f.fallocate(i)
+    table_header = fs[0].reports
+    table = [[numfmt(x.cluster_size)] + [x.to_dict()[y] for y in table_header] for x in fs]
+    from tabulate import tabulate
+    print(tabulate(table, stralign="left", tablefmt="grid", headers=(["cluster_size"] + [x for x in table_header])))
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog = "fsestimate",
@@ -241,27 +302,5 @@ if __name__ == '__main__':
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
     data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
 
-    # fs = [Fat32(cluster_size=s1k),
-    #     Fat32(cluster_size=s4k),
-    #     Fat32(cluster_size=s8k),
-    #     Fat32(cluster_size=s16k),
-    #     Fat32(),
-    #     Fat32(cluster_size=s64k),
-    #     Fat32(cluster_size=s128k)]
-    fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext3FS(), F2FS(), FFS(), Ext4FS()]
-    # fat32 = Fat32()
-    for i in data:
-        for f in fs:
-            f.fallocate(i)
-    pdict = OrderedDict()
-    for f in fs:
-       pdict[f'{f}'] = f.to_dict()
-    #pprint(pdict, indent=4, width=os.get_terminal_size().columns)
-    print(yamldump(pdict, width=os.get_terminal_size().columns))
-
-    fig,ax = plt.subplots(figsize=(20,8))
-    ax.bar(range(len(fs)), [x.total_size() for x in fs])
-    tickbar = "┊\n"
-    ax.set_xticks([i for i in range(len(fs))])
-    ax.set_xticklabels([tickbar*(i%5)+type(x).__name__ for i,x in enumerate(fs)])
-    plt.show()
+    # compare_fat_cluster_size(data)
+    output_fat_estimate(data)
