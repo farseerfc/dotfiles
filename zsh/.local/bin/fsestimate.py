@@ -121,7 +121,7 @@ class ExFat(Fat32):
     
 class UnixFS(BaseFS):
     parameters = set()
-    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'bg_blocks'])
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'bitmap_blocks'])
 
     def __init__(self, inode_size=128, block_size=512, inline_size=13*4, inode_bmap=10, indirect_bmap=512//4, inode_ratio=s4k, bg_size=s128m):
         self.blocks = 0
@@ -156,19 +156,19 @@ class UnixFS(BaseFS):
     def inode_blocks(self):
         return ceil(self.blocks // self.inode_ratio)
     
-    def bg_blocks(self):
+    def bitmap_blocks(self):
         # 2 bitmap block per bg
         return 2 * ceil(self.blocks * self.block_size / self.bg_size)
 
     def total_blocks(self):
-        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.bg_blocks()
+        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.bitmap_blocks()
     
     def total_size(self):
         return self.total_blocks() * self.block_size
 
 class FFS(UnixFS):
     parameters = set()
-    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'fragments', 'bg_blocks'])
+    reports = set(['blocks', 'total_size', 'total_blocks', 'inlined_files', 'indirect_blocks', 'inode_blocks', 'fragments', 'bitmap_blocks'])
 
     def __init__(self, inode_size=128, block_size=s32k, fragment_size=s4k, inline_size=0, inode_bmap=10, indirect_bmap=s32k//4, bg_size=s1g, inode_ratio=s8k):
         self.fragments = 0
@@ -195,7 +195,7 @@ class FFS(UnixFS):
         return ceil(self.fragments / (self.block_size // self.fragment_size))
     
     def total_blocks(self):
-        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks() + self.bg_blocks()
+        return self.blocks + self.indirect_blocks + self.inode_blocks() + self.fragment_blocks() + self.bitmap_blocks()
 
 class F2FS(UnixFS):
     def __init__(self, inode_size=s4k, block_size=s4k, inline_size=3400, inode_bmap=923, indirect_bmap=1018, inode_ratio=1):
@@ -212,7 +212,7 @@ class Ext4FS(Ext2FS):
     def __init__(self, inode_size=256, block_size=s4k, inline_size=15*4+90, inode_bmap=4, indirect_bmap=s4k//12, bg_size=s1g, inode_ratio=s32k):
         UnixFS.__init__(self, **filter_params(locals()))
 
-    def bg_blocks(self):
+    def bitmap_blocks(self):
         # 16 bitmap block per flex_bg
         return 16 * ceil(self.blocks * self.block_size / self.bg_size)
     
@@ -251,15 +251,7 @@ def compare_fat_cluster_size(data):
     plt.show()
 
 def output_fs_estimate(data):
-    #fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext2FS(), F2FS(), FFS(), Ext4FS()]
-    fs = [Fat32(cluster_size=512),
-        Fat32(cluster_size=s1k),
-        Fat32(cluster_size=s4k),
-        Fat32(cluster_size=s8k),
-        Fat32(cluster_size=s16k),
-        Fat32(cluster_size=s32k),
-        Fat32(cluster_size=s64k),
-        Fat32(cluster_size=s128k)]
+    fs = [Stats(), Fat32(), ExFat(), UnixFS(), Ext2FS(), F2FS(), FFS(), Ext4FS()]
     for i in data:
         for f in fs:
             f.fallocate(i)
@@ -300,7 +292,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     filenames = [x if x != '-' else '/dev/stdin' for x in args.input]
-    data=np.array([int(x.split(' ')[0]) for fn in filenames for x in open(fn)])
+    data = [int(x.split(' ')[0]) for fn in filenames for x in open(fn)]
 
     # compare_fat_cluster_size(data)
-    output_fat_estimate(data)
+    # output_fat_estimate(data)
+    output_fs_estimate(data)

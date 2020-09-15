@@ -1,21 +1,44 @@
-## my zshrc based on grml and powerline
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-alias -g colorcopy="| sed 's/'\$(echo -e \"\\033\")'/'\$(echo -e \"\\033\\033\")'/g' | tee /dev/tty | xsel -bi"
+## config for grml-zsh
+if [[ -r "/etc/zsh/keephack" ]]; then
+    # grml-zsh unset prompt
+    prompt off
+    # grml-zsh unset aliases
+    unalias lsd
+fi
 
-# grml-zsh unset prompt
-prompt off
-# grml-zsh unset aliases
-unalias lsd
 
 POWERLINE_BINDINGS=/usr/share/powerline/bindings/
-powerline-daemon -q  # run powerline daemon
-source $POWERLINE_BINDINGS/zsh/powerline.zsh
+## load powerlevel10k or powerline or pure whichever installed
+if [[ -r "$HOME/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+    # config for powerlevel10k
+    source ~/powerlevel10k/powerlevel10k.zsh-theme
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+elif [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
+    ## config for pure
+    autoload -U promptinit; promptinit
+    prompt pure
+elif [[ -r "$POWERLINE_BINDINGS/zsh/powerline.zsh" ]]; then
+    ## config for powerline
+    powerline-daemon -q  # run powerline daemon
+    source $POWERLINE_BINDINGS/zsh/powerline.zsh
+fi
 
 export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+_ZSH_PLUGINS="/usr/share/zsh/plugins"
+for _zsh_plugin in zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search; do
+   [[ ! -r "$_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh" ]] || source $_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh
+done
+
 
 # key bindings fixes for urxvt
 bindkey "^[[7~" beginning-of-line
@@ -33,10 +56,16 @@ bindkey "^[n" down-line-or-search
 
 bindkey "^[OA" history-substring-search-up
 bindkey "^[OB" history-substring-search-down
+bindkey "^[0A" history-substring-search-up
+bindkey "^[0B" history-substring-search-down
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 export SHELL=/bin/zsh
+
+## for compdef
+autoload -Uz compinit
+compinit
 
 # completion for Syu
 compdef -e "words[1]=(pacman -Su);service=pacman;((CURRENT+=1));_pacman" Syu Ge Gc Gw
