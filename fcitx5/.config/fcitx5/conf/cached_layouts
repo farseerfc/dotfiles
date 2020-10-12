@@ -724,7 +724,7 @@ Language=ru
 Label=se
 
 [keyboard-se-smi]
-Description="鍵盤 - 瑞典語 - orthern Saami (Sweden)"
+Description="鍵盤 - 瑞典語 - 北方薩米語 (瑞典)"
 Language=se
 Label=se
 
@@ -780,6 +780,11 @@ Label=bg
 
 [keyboard-bg-bas_phonetic]
 Description="鍵盤 - 保加利亞語 - 保加利亞語 (新式音標)"
+Language=bg
+Label=bg
+
+[keyboard-bg-bekl]
+Description="鍵盤 - 保加利亞語 - Bulgarian (enhanced)"
 Language=bg
 Label=bg
 
@@ -870,6 +875,11 @@ Label=us
 
 [keyboard-us-dvp]
 Description="鍵盤 - 英語 (美式) - 英語 (程式員 Dvorak 配置)"
+Language=en
+Label=us
+
+[keyboard-us-symbolic]
+Description="鍵盤 - 英語 (美式) - English (US, Symbolic)"
 Language=en
 Label=us
 
@@ -1339,7 +1349,7 @@ Language=en
 Label=ie
 
 [keyboard-ie-CloGaelach]
-Description="鍵盤 - 愛爾蘭語 - CloGaelach"
+Description="鍵盤 - 愛爾蘭語 - aelach"
 Language=ga
 Label=ie
 
@@ -1454,7 +1464,7 @@ Language=bn
 Label=bd
 
 [keyboard-bd-probhat]
-Description="鍵盤 - 孟加拉语 - Bangla (Probhat)"
+Description="鍵盤 - 孟加拉语 - ngla (Probhat)"
 Language=bn
 Label=bd
 
@@ -1834,7 +1844,7 @@ Language=ta
 Label=in
 
 [keyboard-in-tam_tamilnet_TAB]
-Description="鍵盤 - 印度語 - Tamil (TamilNet '99, TAB encoding)"
+Description="鍵盤 - 印度語 - '99, TAB encoding)"
 Language=ta
 Label=in
 
@@ -1909,13 +1919,13 @@ Language=en
 Label=in
 
 [keyboard-in-iipa]
-Description="鍵盤 - 印度語 - Indic IPA (IIPA)"
-Language=en
+Description="鍵盤 - 印度語 - Indic (phonetic, IPA)"
+Language=
 Label=in
 
 [keyboard-in-marathi]
-Description="鍵盤 - 印度語 - मराठी इन्स्क्रिप्ट"
-Language=en
+Description="鍵盤 - 印度語 - Marathi (enhanced Inscript)"
+Language=mr
 Label=in
 
 [keyboard-in-modi-kagapa]
@@ -2748,8 +2758,23 @@ Description="鍵盤 - 德語 - German (no dead keys)"
 Language=de
 Label=de
 
+[keyboard-de-e1]
+Description="鍵盤 - 德語 - German (E1)"
+Language=de
+Label=de
+
+[keyboard-de-e2]
+Description="鍵盤 - 德語 - German (E2)"
+Language=de
+Label=de
+
 [keyboard-de-T3]
 Description="鍵盤 - 德語 - 德語 (T3)"
+Language=de
+Label=de
+
+[keyboard-de-us]
+Description="鍵盤 - 德語 - 德语（US）"
 Language=de
 Label=de
 
@@ -2789,7 +2814,7 @@ Language=de
 Label=de
 
 [keyboard-de-dsb]
-Description="鍵盤 - 德語 - 低地文德語"
+Description="鍵盤 - 德語 - ian"
 Language=dsb
 Label=de
 
@@ -2816,11 +2841,6 @@ Label=de
 [keyboard-de-deadtilde]
 Description="鍵盤 - 德語 - German (dead tilde)"
 Language=de
-Label=de
-
-[keyboard-de-us]
-Description="鍵盤 - 德語 - 德语（US）"
-Language=en
 Label=de
 
 [keyboard-de-hu]
@@ -2983,7 +3003,7 @@ Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, dot, dead keys)
 Language=hu
 Label=hu
 
-[keyboard-hu-101_qwertz_dot_nodead]
+[keyboard-hu-wertz_dot_nodead]
 Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, dot, no dead keys)"
 Language=hu
 Label=hu
@@ -3053,7 +3073,7 @@ Description="鍵盤 - 匈牙利語 - 旧匈牙利语"
 Language=hu
 Label=hu
 
-[keyboard-hu-ohu_lig]
+[keyboard-hu-oldhunlig]
 Description="鍵盤 - 匈牙利語 - Old Hungarian (for ligatures)"
 Language=hu
 Label=hu
@@ -3115,6 +3135,11 @@ Label=tr
 
 [keyboard-tr-sun_type6]
 Description="鍵盤 - 土耳其語 - 土耳其語 (昇陽 Type 6/7)"
+Language=tr
+Label=tr
+
+[keyboard-tr-otk]
+Description="鍵盤 - 土耳其語 - Old Turkic"
 Language=tr
 Label=tr
 

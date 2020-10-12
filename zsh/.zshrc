@@ -11,6 +11,7 @@ if [[ -r "/etc/zsh/keephack" ]]; then
     prompt off
     # grml-zsh unset aliases
     unalias lsd
+    unset -f trans
 fi
 
 
@@ -89,6 +90,13 @@ function zsh_stats() {
 
 # set end of file mark
 export PROMPT_EOL_MARK="%B%F{red}🔚"
+
+() { # TIMEFMT {{{3
+  local white_b=$'\e[97m' blue=$'\e[94m' rst=$'\e[0m'
+  TIMEFMT=("== TIME REPORT FOR $white_b%J$rst =="$'\n'
+    "  User: $blue%U$rst"$'\t'"System: $blue%S$rst  Total: $blue%*Es${rst}"$'\n'
+    "  CPU:  $blue%P$rst"$'\t'"Mem:    $blue%M MiB$rst")
+}
 
 # added by travis gem
 [ -f /home/farseerfc/.travis/travis.sh ] && source /home/farseerfc/.travis/travis.sh
