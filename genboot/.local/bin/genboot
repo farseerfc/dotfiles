@@ -62,7 +62,7 @@ for kernel in "${kernels[@]}"; do
     mapfile -t initramfs < <(get_initramfs "$kernel")
     for initramfs in "${initramfs[@]}"; do
         filename="$(get_id "$kernel")-$initramfs.conf"
-        echo -e "\e[1;31m$filename\e[m"
+        echo -e "\e[1;4;31m$filename\e[m"
         write_conf "$kernel" "$initramfs" | tee "/boot/loader/entries/$filename"
     done
 done
