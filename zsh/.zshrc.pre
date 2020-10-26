@@ -1,0 +1,46 @@
+POWERLINE_BINDINGS=/usr/share/powerline/bindings/
+## load powerlevel10k or powerline or pure whichever installed
+if [[ -r "$HOME/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+    # config for powerlevel10k
+    source ~/powerlevel10k/powerlevel10k.zsh-theme
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+elif [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
+    ## config for pure
+    autoload -U promptinit; promptinit
+    prompt pure
+elif [[ -r "$POWERLINE_BINDINGS/zsh/powerline.zsh" ]]; then
+    ## config for powerline
+    powerline-daemon -q  # run powerline daemon
+    source $POWERLINE_BINDINGS/zsh/powerline.zsh
+fi
+
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+_ZSH_PLUGINS="/usr/share/zsh/plugins"
+for _zsh_plugin in zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search; do
+   [[ ! -r "$_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh" ]] || source $_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh
+done
+
+
+# key bindings fixes for urxvt
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+bindkey "^[[5~" beginning-of-history
+bindkey "^[[6~" end-of-history
+bindkey "^[[3~" delete-char
+bindkey "^[[2~" quoted-insert
+
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+bindkey "^[p" up-line-or-search
+bindkey "^[n" down-line-or-search
+
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
+bindkey "^[0A" history-substring-search-up
+bindkey "^[0B" history-substring-search-down
+
+
