@@ -82,10 +82,10 @@ alias Fs="pacman -F"
 alias Fl="pacman -Fl"
 alias Fy="sudo pacman -Fy"
 alias Sy="sudo pacman -Sy"
-alias Ssa="rua search"
-alias Sas="rua search"
-alias Sia="rua info"
-alias Sai="rua info"
+alias Ssa="paru -Ssa"
+alias Sas="paru -Ssa"
+alias Sia="paru -Sia"
+alias Sai="paru -Sia"
 
 function Ga() {
     [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD" && return 1
