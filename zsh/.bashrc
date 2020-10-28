@@ -25,9 +25,11 @@ PERL_MM_OPT="INSTALL_BASE=/home/farseerfc/perl5"; export PERL_MM_OPT;
 #alias ls='ls --color=auto'
 alias ls='exa -gb'
 
-alias ll='ls -l'
-alias la='ls -laa'
-alias lh='ls -lh'
+alias lsd='exa -gb --icons'
+alias ll='lsd -l'
+alias la='lsd -laa'
+alias lh='lsd -lh'
+alias lah='lsd -lah'
 alias grep='grep --color'
 alias g="git-annex"
 alias k="kde-open5"
