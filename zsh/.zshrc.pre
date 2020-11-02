@@ -5,10 +5,6 @@ if [[ -r "$HOME/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
     source ~/powerlevel10k/powerlevel10k.zsh-theme
     # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-elif [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
-    ## config for pure
-    autoload -U promptinit; promptinit
-    prompt pure
 elif [[ -r "$POWERLINE_BINDINGS/zsh/powerline.zsh" ]]; then
     ## config for powerline
     powerline-daemon -q  # run powerline daemon

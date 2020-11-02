@@ -13,6 +13,11 @@ if [[ -r "/etc/zsh/keephack" ]]; then
     unalias lsd
     unset -f trans
 fi
+## config for pure
+if [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
+    autoload -U promptinit; promptinit
+    prompt pure
+fi
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
