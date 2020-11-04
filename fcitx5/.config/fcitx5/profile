@@ -4,7 +4,7 @@ Name=Default
 # Layout
 Default Layout=jp
 # Default Input Method
-DefaultIM=mozc
+DefaultIM=rime
 
 [Groups/0/Items/0]
 # Name
