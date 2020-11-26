@@ -1,6 +1,8 @@
 [Hotkey]
 # 反复按切换键时进行轮换
 EnumerateWithTriggerKeys=True
+# 轮换输入法时跳过第一个输入法
+EnumerateSkipFirst=False
 
 [Hotkey/TriggerKeys]
 0=Control+space
@@ -43,18 +45,22 @@ EnumerateWithTriggerKeys=True
 0=Control+Alt+P
 
 [Behavior]
-# 默认状态为激活
+# 預設啟用
 ActiveByDefault=False
 # 共享输入状态
 ShareInputState=Program
-# 切换输入法时显示输入法信息
+# 在程序中显示预编辑文本
+PreeditEnabledByDefault=True
+# 當切換輸入法時顯示輸入法資訊
 ShowInputMethodInformation=True
 # 在焦点更改时显示输入法信息
 showInputMethodInformationWhenFocusIn=False
-# 默认页大小
+# 預設頁面大小
 DefaultPageSize=8
 # Force Enabled Addons
 EnabledAddons=
 # Force Disabled Addons
 DisabledAddons=
+# Preload input method to be used by default
+PreloadInputMethod=True
 

@@ -1,11 +1,5 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator
-
-
 env:
   TERM: alacritty
-
-window:
-  dynamic_title: true
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -32,52 +26,6 @@ font:
   # Point size of the font
   size: 11.0
 
-
-bell:
-  animation: EaseOutExpo
-  duration: 0
-
 # Background opacity
 background_opacity: 0.80
-
-# Mouse bindings
-#
-# Currently doesn't support modifiers. Both the `mouse` and `action` fields must
-# be specified.
-#
-# Values for `mouse`:
-# - Middle
-# - Left
-# - Right
-# - Numeric identifier such as `5`
-#
-# Values for `action`:
-# - Paste
-# - PasteSelection
-# - Copy (TODO)
-mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
-
-mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
-
-  # Faux Scrollback
-  #
-  # The `faux_scrollback_lines` setting controls the number
-  # of lines the terminal should scroll when the alternate
-  # screen buffer is active. This is used to allow mouse
-  # scrolling for applications like `man`.
-  #
-  # To disable this completely, set `faux_scrollback_lines` to 0.
-  faux_scrolling_lines: 1
-  hide_when_typing: false
-
-# Live config reload (changes require restart)
-live_config_reload: true
 

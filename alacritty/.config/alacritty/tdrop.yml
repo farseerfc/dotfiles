@@ -1,69 +1,16 @@
 window:
-  # Window decorations
-  # Setting this to false will result in window without borders and title bar.
   decorations: none
-  dynamic_title: true
 
-# When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
-# Font configuration (changes require restart)
-#
-# Important font attributes like antialiasing, subpixel aa, and hinting can be
-# controlled through fontconfig. Specifically, the following attributes should
-# have an effect:
-#
-# * hintstyle
-# * antialias
-# * lcdfilter
-# * rgba
-#
-# For instance, if you wish to disable subpixel antialiasing, you might set the
-# rgba property to "none". If you wish to completely disable antialiasing, you
-# can set antialias to false.
-#
-# Please see these resources for more information on how to use fontconfig
-#
-# * https://wiki.archlinux.org/index.php/font_configuration#Fontconfig_configuration
-# * file:///usr/share/doc/fontconfig/fontconfig-user.html
 font:
-  # The normal (roman) font face to use.
   normal:
     family: Monospace # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Regular
-
-  # The bold font face
   bold:
     family: Monospace # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Bold
-
-  # The italic font face
   italic:
     family: Monospace # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Italic
-
-  # Point size of the font
   size: 12.0
-
-  # Offset is the extra space around each character. offset.y can be thought of
-  # as modifying the linespacing, and offset.x as modifying the letter spacing.
-  offset:
-    x: 0
-    y: 0
-
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increase the x offset to move the glyph to
-  # the right, increase the y offset to move the glyph upward.
-  glyph_offset:
-    x: 0
-    y: 0
-
-debug:
-  # Should display the render timer
-  render_timer: false
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -126,48 +73,6 @@ bell:
 # Background opacity
 background_opacity: 0.8
 
-# Mouse bindings
-#
-# Currently doesn't support modifiers. Both the `mouse` and `action` fields must
-# be specified.
-#
-# Values for `mouse`:
-# - Middle
-# - Left
-# - Right
-# - Numeric identifier such as `5`
-#
-# Values for `action`:
-# - Paste
-# - PasteSelection
-# - Copy (TODO)
-mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
-
 mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
-
-  # Faux Scrollback
-  #
-  # The `faux_scrollback_lines` setting controls the number
-  # of lines the terminal should scroll when the alternate
-  # screen buffer is active. This is used to allow mouse
-  # scrolling for applications like `man`.
-  #
-  # To disable this completely, set `faux_scrollback_lines` to 0.
-  faux_scrolling_lines: 1
   hide_when_typing: false
-
-cursor:
-  style: Block
-  unfocused_hollow: true
-
-
-live_config_reload: true
 
