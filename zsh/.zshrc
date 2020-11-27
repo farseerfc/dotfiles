@@ -17,6 +17,8 @@ fi
 if [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
     autoload -U promptinit; promptinit
     prompt pure
+elif [[ -f $HOME/.zshrc.pre ]]; then
+    source $HOME/.zshrc.pre
 fi
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
