@@ -5,6 +5,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+_ZSH_PLUGINS="/usr/share/zsh/plugins"
+_enabled_plugins=(
+        zsh-autosuggestions
+        zsh-history-substring-search
+        zsh-syntax-highlighting
+)
+for _zsh_plugin in $_enabled_plugins[@]; do
+   [[ ! -r "$_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh" ]] || source $_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh
+done
+
 ## config for grml-zsh
 if [[ -r "/etc/zsh/keephack" ]]; then
     # grml-zsh unset prompt
@@ -13,13 +26,47 @@ if [[ -r "/etc/zsh/keephack" ]]; then
     unalias lsd
     unset -f trans
 fi
-## config for pure
-if [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
-    autoload -U promptinit; promptinit
-    prompt pure
-elif [[ -f $HOME/.zshrc.pre ]]; then
-    source $HOME/.zshrc.pre
+
+### config for pure
+#if [[ -r "/usr/share/zsh/functions/Prompts/prompt_pure_setup" ]]; then
+#    autoload -U promptinit; promptinit
+#    prompt pure
+#fi
+
+## config for p10k
+if [[ -r "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+## config for powerline
+#POWERLINE_BINDINGS=/usr/share/powerline/bindings/
+#if [[ -r "$POWERLINE_BINDINGS/zsh/powerline.zsh" ]]; then
+#    ## config for powerline
+#    powerline-daemon -q  # run powerline daemon
+#    source $POWERLINE_BINDINGS/zsh/powerline.zsh
+#fi
+
+# key bindings fixes for urxvt
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+bindkey "^[[5~" beginning-of-history
+bindkey "^[[6~" end-of-history
+bindkey "^[[3~" delete-char
+bindkey "^[[2~" quoted-insert
+
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+bindkey "^[p" up-line-or-search
+bindkey "^[n" down-line-or-search
+
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
+bindkey "^[0A" history-substring-search-up
+bindkey "^[0B" history-substring-search-down
+
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
