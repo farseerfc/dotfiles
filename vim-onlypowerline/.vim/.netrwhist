@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/farseerfc/github/repo/archlinuxcn/libime-git'
+let g:netrw_dirhist_4='/home/farseerfc/github/repo/archlinuxcn'
+let g:netrw_dirhist_3='/home/farseerfc/github/repo/archlinuxcn/libime-git'
 let g:netrw_dirhist_2='/usr/share/libalpm/hooks'
 let g:netrw_dirhist_1='/home/farseerfc/repo/svn-community/telegram-desktop/trunk/src.webrtc'
