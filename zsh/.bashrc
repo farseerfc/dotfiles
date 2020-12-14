@@ -34,7 +34,6 @@ alias grep='grep --color'
 alias g="git-annex"
 alias k="kde-open5"
 alias x="xdg-open"
-export LESS="-R -N"
 
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
@@ -131,8 +130,8 @@ alias limit-run='/usr/bin/time systemd-run --user --pty --same-dir --wait --coll
 alias limit-cpu='/usr/bin/time systemd-run --user --pty --same-dir --wait --collect --slice=limit-cpu.slice '
 alias limit-mem='/usr/bin/time systemd-run --user --pty --same-dir --wait --collect --slice=limit-mem.slice '
 
-alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote(sys.argv[1]))"'
+alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote(sys.argv[1]))"'
 imgvim(){
     curl -F "name=@$1" https://img.vim-cn.com/
 }
@@ -242,7 +241,9 @@ echo "export sha256sums sha512sums md5sums"
 ) | shellcheck -s bash -
 }
 
-PAGER='less -X -M' export LESSOPEN="| pygmentize -f console -O bg=dark %s" export LESS=' -R '
+PAGER='less -XM'
+export LESSOPEN="| pygmentize -f console -O bg=dark %s"
+export LESS=' -RN '
 
 EDITOR="vim"
 export EDITOR
