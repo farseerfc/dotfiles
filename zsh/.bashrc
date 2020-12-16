@@ -241,9 +241,8 @@ echo "export sha256sums sha512sums md5sums"
 ) | shellcheck -s bash -
 }
 
-PAGER='less -XM'
 export LESSOPEN="| pygmentize -f console -O bg=dark %s"
-export LESS=' -RN '
+export LESS='R'
 
 EDITOR="vim"
 export EDITOR
