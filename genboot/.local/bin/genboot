@@ -32,7 +32,7 @@ function get_version(){
 
 function get_options(){
     options="$(sed 's/initrd=\S* //g' /proc/cmdline)"
-    [[ -f /etc/cmdline ]] && options="$(tr '\n' ' ' </etc/cmdline)"
+    [[ -f /etc/kernel/cmdline ]] && options="$(tr '\n' ' ' </etc/kernel/cmdline)"
     echo "$options"
 }
 
