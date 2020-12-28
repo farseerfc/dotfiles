@@ -1,0 +1,2 @@
+#!/bin/sh
+~/.steam/steam/steamapps/common/Proton\ 3.16/proton $@

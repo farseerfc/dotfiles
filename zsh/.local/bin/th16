@@ -1,0 +1,10 @@
+#!/bin/sh
+STEAM_PATH=$HOME/.local/share/Steam
+PROTON_BIN=$STEAM_PATH/steamapps/common/Proton\ 3.16
+PROTON=$STEAM_PATH/steamapps/common/Proton\ 3.16/dist
+
+PROTON_DIR=$STEAM_PATH/steamapps/compatdata/745880
+PROTON_DATA=$STEAM_PATH/steamapps/compatdata/745880/pfx/drive_c/users/steamuser/Application\ Data/ShanghaiAlice/th16
+
+cd "$PROTON_DATA"
+LANG=ja_JP.UTF-8 LANGUAGE=ja_JP STEAM_COMPAT_DATA_PATH="$PROTON_DIR" "$PROTON_BIN/proton" run $STEAM_PATH/steamapps/common/th16/th16.exe

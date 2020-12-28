@@ -1,0 +1,4 @@
+#!/bin/sh
+P="Downloads/Touhou Koumakyou - The Embodiment of Scarlet Devil 3D ver.1.00f"
+cd ~/"$P"
+LANG=ja_JP.UTF-8 LANGUAGE=ja STEAM_COMPAT_DATA_PATH=~/"$P"/.proton/ ~/.steam/steam/steamapps/common/Proton\ 3.16/proton run ./Toho3D.exe
