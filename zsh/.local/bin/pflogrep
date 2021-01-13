@@ -1,0 +1,94 @@
+#!/usr/bin/perl
+=head1 NAME
+
+pflogrep -- Postfix log grep complete activity
+
+=head1 SYNOPSIS
+
+pflogrep [-i] [-s] [-v] PATTERN [FILE]....
+
+=head1 DESCRIPTION
+
+Allows to grep complete activity where PATTERN was found.
+Get nice stats of filtered output using pflogsumm:
+  http://jimsun.linxnet.com/postfix_contrib.html
+
+=head1 AUTHOR
+
+Ondrej Brablc <https://github.com/brablc/>
+
+https://github.com/brablc/postfix-tools
+
+=cut
+
+use Getopt::Long;
+
+($me = $0) =~ s%.*/%%;
+
+$Usage = "
+$me [-i] [-s] [-v] PATTERN [FILE]....
+
+  -i  -- ignore case distinctions when matching
+  -s  -- add separator between messages
+  -v  -- selected lines are those not matching
+
+Examples:
+  # Get only communication related to one email
+  $me info\@example.com mail.log | pflogsumm
+  # Get communication for whole domain - print only from and to lines and color email and status
+  $me example.com mail.log | grep -e from= -e to= | grep --color -P \\<.*\\>\\|status
+";
+
+die $Usage unless &GetOptions( 'i', 's', 'v' ) && (@ARGV >= 1 );
+
+my $ptn = shift;
+my $regex = ( $opt_i ) ?  qr/$ptn/io : qr/$ptn/o;
+my %P;
+my $found = 0;
+
+$exstat = 1;
+$|++;  #turn off buffering for STDOUT
+
+sub checkMatch() {
+    my $q = shift;
+    my $matches = $P{$q} =~ $regex;
+    if ( ($matches && !$opt_v) || (!$matches && $opt_v)) {
+        print $P{$q};
+        print '-' x 50, "\n" if $opt_s;
+        $found++;
+    }
+    delete $P{$q};
+}
+
+sub handleStream() {
+    my $fh = shift;
+
+    while (<$fh>) {
+        next unless /: (([0-9A-Zb-z]{10,15})|NOQUEUE)/;
+        $q = $1;
+        $P{$q} .= $_;
+        if (/: (removed$|milter-reject:)/ || $q eq 'NOQUEUE') {
+            &checkMatch($q);
+        }
+    }
+    # handle unfinished quids
+    foreach my $q (keys %P) {
+        &checkMatch($q);
+    }
+    return $found;
+}
+
+if (@ARGV==0) {
+    $exstat = 0 if &handleStream(\*STDIN);
+    exit( $exstat );
+}
+
+for $f ( @ARGV ) {
+    unless ( open( INP, '<', $f )) {
+        warn "Unable to open input file $f: $!\n";
+        next;
+    }
+    $exstat = 0 if &handleStream(\*INP);
+    close INP;
+}
+exit( $exstat );
