@@ -31,6 +31,7 @@ alias la='lsd -laa'
 alias lh='lsd -lh'
 alias lah='lsd -lah'
 alias grep='grep --color'
+alias ip='ip -c=auto'
 alias g="git-annex"
 alias k="kde-open5"
 alias x="xdg-open"
