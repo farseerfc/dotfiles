@@ -134,15 +134,8 @@ alias limit-mem='/usr/bin/time systemd-run --user --pty --same-dir --wait --coll
 
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote(sys.argv[1]))"'
-imgvim(){
-    curl -F "name=@$1" https://img.vim-cn.com/
-}
 
-simg(){
-    scrot $@ -e 'curl -F \"name=@$f\" https://img.vim-cn.com/'
-}
-
-alias pvim="curl -F 'vimcn=<-' https://cfp.vim-cn.com/"
+alias ini2json='python3 -c "import json,configparser;c=configparser.ConfigParser();c.read('"'/dev/stdin'"');d={s: {k: c[s][k] for k in c[s]} for s in c.sections()};print(json.dumps(d))"'
 
 
 alias clipboard="xclip -selection clipboard"
