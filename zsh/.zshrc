@@ -112,6 +112,11 @@ export PROMPT_EOL_MARK="%B%F{red}🔚"
 # change systemd-boot default entry to reboot to windows
 alias reboot-windows="sudo efivar -w -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderEntryDefault -f =(echo -n 'windows\0' | iconv -f utf-8 -t utf-16le)"
 
+# kubectl completion
+if type "kubectl" > /dev/null; then
+  source <(kubectl completion zsh)
+fi
+
 # Automatically change the directory in bash after closing ranger
 #
 # This is a bash function for .bashrc to automatically change the directory to
