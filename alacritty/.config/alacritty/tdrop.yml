@@ -1,5 +1,6 @@
 window:
   decorations: none
+  opacity: 0.8
 
 draw_bold_text_with_bright_colors: true
 
@@ -69,9 +70,6 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 100
-
-# Background opacity
-background_opacity: 0.8
 
 mouse:
   hide_when_typing: false
