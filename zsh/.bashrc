@@ -5,7 +5,7 @@
 
 TEXLIVEPATH=/usr/local/texlive/2016
 
-export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:~/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:~/.local/bin:~/.npm-global/bin
+export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:~/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:~/.local/bin:~/.npm-global/bin:~/go/bin
 export MANPATH=$MANPATH:$TEXLIVEPATH/texmf/doc/ma
 export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
 export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
@@ -138,10 +138,16 @@ alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote(sys.
 alias ini2json='python3 -c "import fileinput,json,configparser;c=configparser.ConfigParser(allow_no_value=True);c.read_string('"''"'.join(fileinput.input()));print(json.dumps({s: {k: c[s][k] for k in c[s]} for s in c.sections()}))"'
 
 
-alias clipboard="xclip -selection clipboard"
-alias Ci="clipboard -i"
-alias Co="clipboard -o"
-alias Copng="Co -target image/png"
+if ! command -v clip.exe &> /dev/null
+then
+    alias clipboard="xclip -selection clipboard"
+    alias Ci="clipboard -i"
+    alias Co="clipboard -o"
+    alias Copng="Co -target image/png"
+else
+    alias clipboard="clip.exe"
+    alias Ci="clipboard"
+fi
 
 Ct(){
     t=$(mktemp /tmp/furigana-XXXX)
