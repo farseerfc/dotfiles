@@ -134,3 +134,4 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
+. /etc/profile.d/wezterm.sh
