@@ -48,22 +48,11 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   }
 end)
 
-local launch_menu = {}
 local default_prog = {"/usr/bin/zsh", "-l"}
 local default_cwd = "/home/farseerfc"
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  distro = "Arch"
-  -- Add an entry that will spawn into the distro with the default shell
-  table.insert(launch_menu, {
-    label = distro .. " (WSL default shell)",
-    args = {"wsl.exe", "--distribution", distro},
-  })
-  default_prog = {"wsl.exe", "--distribution", "Arch"}
-  -- default_prog = {"/usr/bin/zsh", "-l"}
-end
 
-return {
+local config = {
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false,
   window_background_opacity = 0.8,
@@ -80,8 +69,20 @@ return {
       background = "#000000",
     },
   },
-  launch_menu = launch_menu,
   default_prog = default_prog,
   default_cwd = default_cwd,
   tab_max_width = 32,
 }
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  distro = "Arch"
+  -- Add an entry that will spawn into the distro with the default shell
+  table.insert(config.launch_menu, {
+    label = distro .. " (WSL default shell)",
+    args = {"wsl.exe", "--distribution", distro},
+  })
+  default_prog = {"wsl.exe", "--distribution", "Arch"}
+  -- default_prog = {"/usr/bin/zsh", "-l"}
+end
+
+return config
