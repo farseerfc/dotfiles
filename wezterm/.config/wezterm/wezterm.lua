@@ -51,6 +51,26 @@ end)
 local default_prog = {"/usr/bin/zsh", "-l"}
 local default_cwd = "/home/farseerfc"
 
+-- tmux style leader keys
+local keys = {
+    {key="|", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {key="t", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+    {key="c", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+    -- Send "CTRL-B" to the terminal when pressing CTRL-B, CTRL-B
+    {key="b", mods="LEADER", action=wezterm.action{SendString="\x02"}},
+}
+
+for i = 1,9 do
+   tabkey = {key=tostring(i), mods="LEADER", action=wezterm.action{ActivateTab=(i-1)}}
+   table.insert(keys,tabkey)
+end
+
+local ctrlkeys = {}
+for i, key in ipairs(keys) do
+   ctrlkey = {key=key.key, mods=key.mods .. "|CTRL", action=key.action}
+   table.insert(ctrlkeys, ctrlkey)
+   table.insert(ctrlkeys, key)
+end
 
 local config = {
   tab_bar_at_bottom = true,
@@ -73,6 +93,9 @@ local config = {
   default_cwd = default_cwd,
   tab_max_width = 32,
   key_map_preference = "Mapped",
+  -- tmux style key binding
+  leader = { key="b", mods="CTRL", timeout_milliseconds=1000 },
+  keys = ctrlkeys,
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
