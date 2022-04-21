@@ -23,7 +23,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
   -- ensure that the titles fit in the available space,
   -- and that we have room for the edges.
-  local title = tab.active_pane.title
+  local title = tab.active_pane.title .. ' '
   local hostname = wezterm.hostname()
   -- emit current host
   local has_hostname = title:find(hostname)
@@ -31,14 +31,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
      x, y = has_hostname
      title = wezterm.truncate_left(title, title:len() - x - hostname:len() - 1)
   end
-  if string.len(title) > max_width then
-     title = wezterm.truncate_right(title, max_width-4) .. "…"
+  if string.len(title)+string.len(tab.tab_index) > max_width then
+     title = wezterm.truncate_right(title, max_width-5) .. "…"
   end
 
   return {
     {Background={Color=edge_foreground}},
     {Foreground={Color=edge_background}},
-    {Text=SOLID_RIGHT_ARROW},
+    {Text=SOLID_RIGHT_ARROW..(tab.tab_index+1)},
     {Background={Color=background}},
     {Foreground={Color=foreground}},
     {Text=title},
@@ -72,6 +72,7 @@ local config = {
   default_prog = default_prog,
   default_cwd = default_cwd,
   tab_max_width = 32,
+  key_map_preference = "Mapped",
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
