@@ -54,8 +54,15 @@ local default_cwd = "/home/farseerfc"
 -- tmux style leader keys
 local keys = {
     {key="|", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {key=":", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {key="-", mods="LEADER", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
     {key="t", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
     {key="c", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+    {key="LeftArrow", mods="LEADER", action=wezterm.action{ActivatePaneDirection="Left"}},
+    {key="RightArrow", mods="LEADER", action=wezterm.action{ActivatePaneDirection="Right"}},
+    {key="UpArrow", mods="LEADER", action=wezterm.action{ActivatePaneDirection="Up"}},
+    {key="DownArrow", mods="LEADER", action=wezterm.action{ActivatePaneDirection="Down"}},
+    {key="w", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=true}}},
     -- Send "CTRL-B" to the terminal when pressing CTRL-B, CTRL-B
     {key="b", mods="LEADER", action=wezterm.action{SendString="\x02"}},
 }
@@ -96,6 +103,10 @@ local config = {
   -- tmux style key binding
   leader = { key="b", mods="CTRL", timeout_milliseconds=1000 },
   keys = ctrlkeys,
+  -- cursors
+  default_cursor_style = "BlinkingBar",
+  cursor_blink_rate = 500,
+  compose_cursor = "orange",
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
