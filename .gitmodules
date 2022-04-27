@@ -1,0 +1,3 @@
+[submodule "zsh/F-Sy-H"]
+	path = zsh/F-Sy-H
+	url = https://github.com/z-shell/F-Sy-H

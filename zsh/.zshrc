@@ -14,6 +14,11 @@ _enabled_plugins=(
         zsh-history-substring-search
         zsh-syntax-highlighting
 )
+ZSH_F_SH_H="$HOME/F-Sy-H/f-sy-h.plugin.zsh"
+if test -r "$ZSH_F_SH_H"; then
+  source $ZSH_F_SH_H
+  _enabled_plugins=(${_enabled_plguins:|zsh-syntax-highlighting})
+fi
 for _zsh_plugin in $_enabled_plugins[@]; do
    [[ ! -r "$_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh" ]] || source $_ZSH_PLUGINS/$_zsh_plugin/$_zsh_plugin.zsh
 done
