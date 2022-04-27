@@ -112,12 +112,14 @@ local config = {
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   distro = "Arch"
   -- Add an entry that will spawn into the distro with the default shell
+  config.launch_menu = {}
   table.insert(config.launch_menu, {
     label = distro .. " (WSL default shell)",
-    args = {"wsl.exe", "--distribution", distro},
+    args = {"wsl.exe", "--cd", "/home/farseerfc", "--distribution", distro},
+    default_cwd = "/home/farseerfc"
   })
-  default_prog = {"wsl.exe", "--distribution", "Arch"}
-  -- default_prog = {"/usr/bin/zsh", "-l"}
+  config.default_prog = {"wsl.exe", "--cd", "/home/farseerfc", "--distribution", "Arch"}
+  config.default_cwd = "/home/farseerfc"
 end
 
 return config
