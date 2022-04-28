@@ -80,8 +80,11 @@ for i, key in ipairs(keys) do
 end
 
 local config = {
+  -- tab bar
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false,
+  -- visual
+  font = wezterm.font("Fira Code"),
   window_background_opacity = 0.8,
   visual_bell = {
     fade_in_function = "EaseIn",
@@ -90,12 +93,14 @@ local config = {
     fade_out_duration_ms = 150,
   },
   enable_scroll_bar = true,
+  -- color
   colors = {
     visual_bell = "#202020",
     tab_bar = {
       background = "#000000",
     },
   },
+  -- behavior
   default_prog = default_prog,
   default_cwd = default_cwd,
   tab_max_width = 32,
