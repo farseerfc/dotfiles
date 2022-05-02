@@ -112,6 +112,7 @@ local config = {
   default_cursor_style = "BlinkingBar",
   cursor_blink_rate = 500,
   compose_cursor = "orange",
+  enable_wayland = false,
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
