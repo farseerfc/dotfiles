@@ -23,7 +23,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_1_1Actions0]
-CommandURL=tdrop -w 100% -h 100% --class "org.wezfurlong.wezterm" -f "start --always-new-process" wezterm toggle_auto_hide
+CommandURL=tdrop -w 100% -h 100% --class "org.wezfurlong.wezterm" -f "connect unix" wezterm toggle_auto_hide
 Type=COMMAND_URL
 
 [Data_1_1Conditions]

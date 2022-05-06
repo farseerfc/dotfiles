@@ -101,6 +101,11 @@ local config = {
     },
   },
   -- behavior
+  unix_domains = {
+    -- https://github.com/wez/wezterm/issues/1299#issuecomment-993770970
+    -- start a unix socket domain on wezterm mux
+    {name = "unix",}
+  },
   default_prog = default_prog,
   default_cwd = default_cwd,
   tab_max_width = 32,
@@ -111,8 +116,8 @@ local config = {
   -- cursors
   default_cursor_style = "BlinkingBar",
   cursor_blink_rate = 500,
-  compose_cursor = "orange",
   enable_wayland = false,
+  -- compose_cursor = "orange",
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
