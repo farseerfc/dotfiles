@@ -102,7 +102,7 @@ function Ga() {
 }
 
 function G() {
-    git clone https://git.archlinux.org/svntogit/$1.git/ -b packages/$3 --single-branch $3
+    git clone https://github.com/archlinux/svntogit-$1/ -b packages/$3 --single-branch $3
     mv "$3"/trunk/* "$3"
     rm -rf "$3"/{repos,trunk,.git}
 }
