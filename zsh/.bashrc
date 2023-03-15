@@ -226,6 +226,24 @@ function compresspdf(){
 gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=setting -sOutputFile=$2 $1
 }
 
+function unzlib {
+    exec 9<&0
+    printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - ${1:-/dev/fd/9}  | gzip -dc
+}
+
+function zlib {
+    cat ${1:-/dev/stdin} | gzip -c | tail -c +9
+}
+
+function inflate {
+    exec 9<&0
+    printf "\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\x00" | cat - ${1:-/dev/fd/9}  | gzip -dc
+}
+
+function deflate {
+    cat ${1:-/dev/stdin} | gzip -c | tail -c +11
+}
+
 function pkgcheck() {
 export SHELLCHECK_OPTS="-e SC2164"
 ## SC2164: Use 'cd ... || exit' or 'cd ... || return' in case cd fails.
