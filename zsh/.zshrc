@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 _ZSH_PLUGINS="/usr/share/zsh/plugins"
@@ -116,6 +116,8 @@ export PROMPT_EOL_MARK="%B%F{red}🔚"
 
 # change systemd-boot default entry to reboot to windows
 alias reboot-windows="sudo efivar -w -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderEntryDefault -f =(echo -n 'windows\0' | iconv -f utf-8 -t utf-16le)"
+
+alias -g vimrg=" --vimgrep | vim -q /dev/stdin"
 
 # kubectl completion
 if type "kubectl" > /dev/null; then

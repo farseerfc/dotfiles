@@ -58,6 +58,10 @@ alias :w="sync"
 alias :x="sync && exit"
 alias :wq="sync && exit"
 
+# reset command has a 1s delay for real terminal hardwares:
+# see https://unix.stackexchange.com/a/335650
+alias reset="tput reset"
+
 # pacman aliases and functions
 function Syu(){
     sudo pacsync pacman -Sy && sudo pacman -Su $@  && sync -f /
