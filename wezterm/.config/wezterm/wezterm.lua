@@ -93,6 +93,7 @@ local config = {
     fade_out_duration_ms = 150,
   },
   enable_scroll_bar = true,
+  warn_about_missing_glyphs=false,
   -- color
   colors = {
     visual_bell = "#202020",

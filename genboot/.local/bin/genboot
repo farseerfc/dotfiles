@@ -36,12 +36,6 @@ function get_options(){
     echo "$options"
 }
 
-function get_ucode(){
-    cd /boot || exit
-    [[ -f "intel-ucode.img" ]] && echo "intel-ucode.img"
-    [[ -f "amd-ucode.img" ]] && echo "amd-ucode.img"
-}
-
 function write_conf(){
     kernel="$1"
     initramfs="$2"
@@ -49,10 +43,6 @@ function write_conf(){
     echo -e "version\t$(get_version "$kernel")"
     echo -e "options\t$(get_options "$kernel")"
     echo -e "linux\t/vmlinuz-$kernel"
-    mapfile -t ucodes < <(get_ucode)
-    for ucode in "${ucodes[@]}"; do
-        echo -e "initrd\t/$ucode"
-    done
     echo -e "initrd\t/initramfs-$initramfs.img"
 }
 
