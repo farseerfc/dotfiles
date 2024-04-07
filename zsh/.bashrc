@@ -64,9 +64,9 @@ alias reset="tput reset"
 
 # pacman aliases and functions
 function Syu(){
-    sudo pacsync pacman -Sy && sudo pacman -Su $@  && sync -f /
+    sudo pacman -Syu $@  && sync -f /
     pacman -Qtdq | ifne sudo pacman -Rcs - && sync -f /
-    sudo pacsync pacman -Fy && sync -f /
+    sudo pacman -Fy && sync -f /
     pacdiff -o
 }
 
