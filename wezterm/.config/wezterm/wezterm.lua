@@ -84,7 +84,7 @@ local config = {
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false,
   -- visual
-  font = wezterm.font("Fira Code"),
+  font = wezterm.font_with_fallback {"Fira Code", "Noto Color Emoji", "Symbols Nerd Font", "Noto Sans Mono", "Noto Sans CJK SC", "HanaMinA", "HanaMinB"} ,
   window_background_opacity = 0.8,
   visual_bell = {
     fade_in_function = "EaseIn",
