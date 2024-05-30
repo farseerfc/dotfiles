@@ -94,16 +94,7 @@ alias Ssa="paru -Ssa"
 alias Sas="paru -Ssa"
 alias Sia="paru -Sia"
 alias Sai="paru -Sia"
-
-function Ga() {
-    [ -z "$1" ] && echo "usage: Ga <aur package name>: get AUR package PKGBUILD" && return 1
-    TMPDIR=$(mktemp -d)
-    git clone aur@aur.archlinux.org:"$1".git "$TMPDIR"
-    rm -rf "$TMPDIR"/.git
-    mkdir -p "$1"
-    cp -r -i "$TMPDIR"/* "$1"/
-    rm -rf "$TMPDIR"
-}
+alias Ga="paru -G"
 
 function G() {
     git clone https://github.com/archlinux/svntogit-$1/ -b packages/$3 --single-branch $3
