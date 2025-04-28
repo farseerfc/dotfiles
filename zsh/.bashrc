@@ -44,7 +44,8 @@ alias .="source"
 alias cp="cp -i --reflink=auto --sparse=auto"
 alias ssh="TERM=xterm-256color ssh"
 alias bc="bc -lq"
-alias numsum="tr '\n' '+' | sed 's/\+$/\n/' | bc"
+alias numsum="paste -sd+ | bc"
+alias sumup="paste -sd+ | bc"
 alias pvb="pv -W -F'All:%b In:%t Cu:%r Av:%a %p'"
 alias kwin-blur="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0"
 alias kwin-clear="xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -remove _KDE_NET_WM_BLUR_BEHIND_REGION"
@@ -65,7 +66,10 @@ alias reset="tput reset"
 # pacman aliases and functions
 function Syu(){
     sudo pacman -Syu $@  && sync -f /
+    # remove orphans
     pacman -Qtdq | ifne sudo pacman -Rcs - && sync -f /
+    # remove orphans with circle dependencies
+    comm <(pacman -Qdttq | pacman -Rs --print-format '%n' - | sort) <(pacman -Qdq | pacman -Rsu --print-format '%n' - | sort) -1 -3 | ifne sudo pacman -Rcs - && sync -f /
     sudo pacman -Fy && sync -f /
     pacdiff -o
 }

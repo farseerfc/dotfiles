@@ -1,2 +1,5 @@
 #!/bin/sh
-~/.steam/steam/steamapps/common/Proton\ 3.16/proton $@
+mkdir -p ./.proton
+export STEAM_COMPAT_CLIENT_INSTALL_PATH="$(realpath ./.client)"
+export STEAM_COMPAT_DATA_PATH="$(realpath ./.proton)"
+/home/farseerfc/.steam/steam/steamapps/common/Proton\ 9.0\ \(Beta\)/proton run $@
