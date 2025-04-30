@@ -117,7 +117,7 @@ local config = {
   -- cursors
   default_cursor_style = "BlinkingBar",
   cursor_blink_rate = 500,
-  enable_wayland = false,
+  enable_wayland = true,
   -- compose_cursor = "orange",
 }
 
