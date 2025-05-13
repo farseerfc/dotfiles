@@ -65,12 +65,12 @@ alias reset="tput reset"
 
 # pacman aliases and functions
 function Syu(){
-    sudo pacman -Syu $@  && sync -f /
+    run0 pacman -Syu $@  && sync -f /
     # remove orphans
-    pacman -Qtdq | ifne sudo pacman -Rcs - && sync -f /
+    pacman -Qtdq | ifne run0 pacman -Rcs - && sync -f /
     # remove orphans with circle dependencies
-    comm <(pacman -Qdttq | pacman -Rs --print-format '%n' - | sort) <(pacman -Qdq | pacman -Rsu --print-format '%n' - | sort) -1 -3 | ifne sudo pacman -Rcs - && sync -f /
-    sudo pacman -Fy && sync -f /
+    comm -1 -3 <(pacman -Qdttq | ifne pacman -Rs --print-format '%n' - | sort) <(pacman -Qdq | ifne pacman -Rsu --print-format '%n' - | sort) | ifne run0 pacman -Rcs - && sync -f /
+    run0 pacman -Fy && sync -f /
     pacdiff -o
 }
 
