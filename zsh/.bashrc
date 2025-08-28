@@ -2,22 +2,10 @@
 # ~/.bashrc
 #
 
-
-TEXLIVEPATH=/usr/local/texlive/2016
-
 export PATH=$PATH:~/eclipse:$TEXLIVEPATH/bin/x86_64-linux:/usr/lib/ruby/gems/2.0.0/bin:~/.gem/ruby/2.0.0/bin:~/.cabal/bin:~/.cargo/bin:~/.local/bin:~/.npm-global/bin:~/go/bin
 export MANPATH=$MANPATH:$TEXLIVEPATH/texmf/doc/ma
 export INFOPATH=$INFOPATH:$TEXLIVEPATH/texmf/doc/info
-export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:/usr/lib/qt4/plugins:/usr/lib/kde4/plugins
 export PYTHONPATH=$PYTHONPATH:~/github/winterpy/pylib
-
-
-# perl path added by cpan
-PATH="/home/farseerfc/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/farseerfc/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/farseerfc/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/farseerfc/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/farseerfc/perl5"; export PERL_MM_OPT;
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
