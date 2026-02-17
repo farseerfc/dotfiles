@@ -99,19 +99,8 @@ function Gw() {
     sudo pacman -Sw "$1" && cp /var/cache/pacman/pkg/$1*.pkg.tar.* ${2:-.}
 }
 
-function Ge() {
-    [ -z "$@" ] && echo "usage: $0 <core/extra package name>: get core/extra package PKGBUILD" && return 1
-    for i in $@; do
-    	G packages core/extra $i
-    done
-}
-
-function Gc() {
-    [ -z "$@" ] && echo "usage: $0 <community package name>: get community package PKGBUILD" && return 1
-    for i in $@; do
-    	G community community $i
-    done
-}
+alias Ge="pkgctl repo clone"
+alias Gc="pkgctl repo clone"
 
 alias rankpacman='sed "s/^#//" /etc/pacman.d/mirrorlist.pacnew | rankmirrors -n 10 - | sudo tee /etc/pacman.d/mirrorlist'
 
