@@ -53,6 +53,11 @@ alias reset="tput reset"
 
 # pacman aliases and functions
 function Syu(){
+    if [[ -e /etc/wsl.conf ]]; then
+        function pkexec(){
+          sudo $@
+        }
+    fi
     pkexec pacman -Syu $@  && sync -f /
     # remove orphans
     pacman -Qtdq | ifne pkexec pacman -Rcs - && sync -f /
@@ -60,6 +65,7 @@ function Syu(){
     comm -1 -3 <(pacman -Qdttq | ifne pacman -Rs --print-format '%n' - | sort) <(pacman -Qdq | ifne pacman -Rsu --print-format '%n' - | sort) | ifne pkexec pacman -Rcs - && sync -f /
     pkexec pacman -Fy && sync -f /
     pacdiff -o
+    unset -f pkexec
 }
 
 alias Rcs="sudo pacman -Rcs"
