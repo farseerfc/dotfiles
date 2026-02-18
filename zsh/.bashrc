@@ -65,7 +65,9 @@ function Syu(){
     comm -1 -3 <(pacman -Qdttq | ifne pacman -Rs --print-format '%n' - | sort) <(pacman -Qdq | ifne pacman -Rsu --print-format '%n' - | sort) | ifne pkexec pacman -Rcs - && sync -f /
     pkexec pacman -Fy && sync -f /
     pacdiff -o
-    unset -f pkexec
+    if [[ -e /etc/wsl.conf ]]; then
+        unset -f pkexec
+    fi
 }
 
 alias Rcs="sudo pacman -Rcs"
