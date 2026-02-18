@@ -96,12 +96,6 @@ alias Sia="paru -Sia"
 alias Sai="paru -Sia"
 alias Ga="paru -G"
 
-function G() {
-    git clone https://github.com/archlinux/svntogit-$1/ -b packages/$3 --single-branch $3
-    mv "$3"/trunk/* "$3"
-    rm -rf "$3"/{repos,trunk,.git}
-}
-
 function Gw() {
     [ -z "$1" ] && echo "usage: Gw <package name> [directory (default to pwd)]: get package file *.pkg.tar.xz from pacman cache" && return 1
     sudo pacman -Sw "$1" && cp /var/cache/pacman/pkg/$1*.pkg.tar.* ${2:-.}
